@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050816" />
+  <title>Ahmed Almoghani | الصفحة الشخصية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <header class="nav-wrap">
+    <nav class="nav glass">
+      <a class="brand magnetic" href="#home">
+        <span class="brand-orb"></span>
+        <span>ALMOGHANI</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">الرئيسية</a>
+        <a href="#about">عني</a>
+        <a href="#work">أعمالي</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-aurora aurora-1"></div>
+      <div class="hero-aurora aurora-2"></div>
+
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span class="live-dot"></span> WELCOME TO MY SPACE</div>
+        <h1>
+          <span class="line">أحمد المغني</span>
+          <span class="line gradient-text">تجربة رقمية مختلفة.</span>
+        </h1>
+        <p class="hero-copy">
+          صفحة شخصية بتصميم مستقبلي، حركة ثلاثية الأبعاد، تأثيرات ضوئية،
+          وانتقالات ناعمة تعطي حضورًا قويًا من أول ثانية.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#about">
+            <span>استكشف الصفحة</span>
+            <i>↙</i>
+          </a>
+          <a class="btn btn-ghost magnetic" href="#contact">تواصل معي</a>
+        </div>
+
+        <div class="mini-stats">
+          <div><strong>3D</strong><span>Motion</span></div>
+          <div><strong>60FPS</strong><span>Smooth</span></div>
+          <div><strong>100%</strong><span>Responsive</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1">
+        <div class="scene" id="scene">
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="orbit orbit-c"></div>
+          <div class="core">
+            <div class="core-inner">
+              <span>AM</span>
+            </div>
+          </div>
+          <div class="floating-chip chip-1 glass">CREATIVE</div>
+          <div class="floating-chip chip-2 glass">PREMIUM</div>
+          <div class="floating-chip chip-3 glass">INTERACTIVE</div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="section-kicker">01 / ABOUT</span>
+        <h2>مو مجرد صفحة شخصية.<br><span>هي تجربة.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="feature-card tilt-card reveal">
+          <div class="card-icon">✦</div>
+          <h3>حركة ثلاثية الأبعاد</h3>
+          <p>البطاقات والعناصر تتفاعل مع حركة المؤشر لتعطي إحساسًا حقيقيًا بالعمق.</p>
+          <div class="card-shine"></div>
+        </article>
+
+        <article class="feature-card tilt-card reveal delay-1">
+          <div class="card-icon">⌁</div>
+          <h3>انتقالات سينمائية</h3>
+          <p>ظهور تدريجي، parallax، وحركات سلسة أثناء التصفح بدون تقطيع مزعج.</p>
+          <div class="card-shine"></div>
+        </article>
+
+        <article class="feature-card tilt-card reveal delay-2">
+          <div class="card-icon">◌</div>
+          <h3>Particles حيّة</h3>
+          <p>خلفية متحركة تتفاعل مع الشاشة وتمنح الموقع طابعًا مستقبليًا فاخرًا.</p>
+          <div class="card-shine"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section showcase" id="work">
+      <div class="section-head reveal">
+        <span class="section-kicker">02 / SHOWCASE</span>
+        <h2>مساحات تعرضك<br><span>بطريقة قوية.</span></h2>
+      </div>
+
+      <div class="showcase-grid">
+        <div class="project-card wide tilt-card reveal">
+          <div class="project-bg grid-bg"></div>
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <span>PROFILE</span>
+            <h3>نبذة شخصية احترافية</h3>
+            <p>مكان مناسب للسيرة المختصرة، الخبرات، المهارات والإنجازات.</p>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card reveal delay-1">
+          <div class="project-bg orb-bg"></div>
+          <div class="project-number">02</div>
+          <div class="project-content">
+            <span>LINKS</span>
+            <h3>روابطك كلها</h3>
+            <p>واتساب، X، بريد، موقع، وأي حسابات أخرى.</p>
+          </div>
+        </div>
+
+        <div class="project-card tilt-card reveal delay-2">
+          <div class="project-bg beam-bg"></div>
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <span>CONTACT</span>
+            <h3>تواصل سريع</h3>
+            <p>زر واتساب مباشر ونموذج تواصل أنيق.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-box glass tilt-card reveal">
+        <div>
+          <span class="section-kicker">03 / CONTACT</span>
+          <h2>خلنا نصنع<br><span>شيء يلفت النظر.</span></h2>
+        </div>
+        <div class="contact-actions">
+          <a href="#" class="social-btn magnetic">
+            <span>WhatsApp</span><i>↗</i>
+          </a>
+          <a href="#" class="social-btn magnetic">
+            <span>X / Twitter</span><i>↗</i>
+          </a>
+          <a href="mailto:hello@example.com" class="social-btn magnetic">
+            <span>Email</span><i>↗</i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 AHMED ALMOGHANI</span>
+    <span>Designed for motion.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
