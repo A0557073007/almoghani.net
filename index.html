@@ -449,6 +449,7 @@
     hashLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const targetHash = link.getAttribute('href');
+        updateCurrentLink();
         if (targetHash && targetHash !== window.location.hash) {
           requestAnimationFrame(() => focusTarget(targetHash));
         }
