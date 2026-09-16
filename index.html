@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المغني | تصميم عصري</title>
+  <style>
+    :root {
+      --bg: #081221;
+      --bg-soft: #0d1b2f;
+      --card: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #f7f8fb;
+      --muted: #b7c1d1;
+      --brand: #62d0ff;
+      --brand-2: #8f7dff;
+      --accent: #21e6a8;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Tahoma", "Arial", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(98, 208, 255, 0.18), transparent 28%),
+        radial-gradient(circle at top left, rgba(143, 125, 255, 0.16), transparent 30%),
+        linear-gradient(180deg, #0a1424 0%, #081221 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #081221;
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      padding: 34px 0 70px;
+    }
+
+    .hero-card,
+    .panel,
+    .stat,
+    .service {
+      background: var(--card);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.2;
+    }
+
+    .hero-copy p {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      max-width: 640px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #081221;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .hero-card {
+      border-radius: 30px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto -10%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(33, 230, 168, 0.28), transparent 70%);
+    }
+
+    .screen {
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 18px;
+    }
+
+    .screen-top {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .panel {
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .panel h3,
+    .service h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .panel p,
+    .service p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stats,
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .stat,
+    .service {
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 1.8rem;
+    }
+
+    .section-copy {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 700px;
+    }
+
+    .footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .stats,
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a href="#" class="logo">
+        <span class="logo-mark">م</span>
+        <span>almoghani</span>
+      </a>
+      <nav class="nav">
+        <a href="#services">الخدمات</a>
+        <a href="#about">عن التصميم</a>
+        <a href="#contact">التواصل</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>واجهة حديثة تعطي انطباعًا أقوى وأكثر احترافية.</h1>
+          <p>
+            هذا تصميم عربي أنيق ومرتب يركز على الوضوح، المساحات المريحة، والألوان العصرية
+            حتى يظهر الموقع بشكل أفضل وأكثر جاذبية من الشكل البسيط السابق.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#services">استعرض التصميم</a>
+            <a class="btn btn-secondary" href="#contact">ابدأ الآن</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>01</strong>
+              تصميم واضح وسريع في التصفح.
+            </div>
+            <div class="stat">
+              <strong>02</strong>
+              ألوان حديثة مع طابع احترافي.
+            </div>
+            <div class="stat">
+              <strong>03</strong>
+              مناسب للجوال والشاشات الكبيرة.
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="screen">
+            <div class="screen-top">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="stack">
+              <div class="panel">
+                <h3>هوية بصرية أفضل</h3>
+                <p>مزج بين الخلفية الداكنة والتدرجات المضيئة ليظهر المحتوى بشكل فاخر وواضح.</p>
+              </div>
+              <div class="panel">
+                <h3>عرض مرتب للمحتوى</h3>
+                <p>تقسيم الصفحة إلى أقسام واضحة يساعد الزائر على الفهم السريع واتخاذ القرار.</p>
+              </div>
+              <div class="panel">
+                <h3>تجربة استخدام مريحة</h3>
+                <p>أزرار بارزة، نصوص واضحة، وتجاوب كامل مع مختلف الأجهزة.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <h2 class="section-title">مميزات التصميم</h2>
+        <p class="section-copy">
+          تم بناء الصفحة كملف واحد جاهز للاستخدام، بدون اعتماد على مكتبات خارجية، ليسهل عليك التعديل
+          أو الرفع مباشرة على الاستضافة.
+        </p>
+
+        <div class="services">
+          <article class="service">
+            <h3>تصميم عصري</h3>
+            <p>اعتماد بطاقات شفافة، ظلال ناعمة، وتدرجات لونية تعطي إحساسًا حديثًا ومميزًا.</p>
+          </article>
+          <article class="service">
+            <h3>جاهز للتخصيص</h3>
+            <p>يمكنك تعديل النصوص والألوان والأقسام بسهولة من نفس الملف بدون تعقيد.</p>
+          </article>
+          <article class="service">
+            <h3>سريع وخفيف</h3>
+            <p>الملف مستقل ويعمل مباشرة في المتصفح، مما يجعله مناسبًا للعرض السريع والنشر الفوري.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" style="padding-top: 34px;">
+        <h2 class="section-title">فكرة الواجهة</h2>
+        <p class="section-copy">
+          الهدف من هذا التصميم هو رفع جودة العرض البصري للموقع مع الحفاظ على البساطة وسهولة الاستخدام،
+          بحيث يكون مناسبًا لعرض خدمات، ملف شخصي، أو صفحة تعريفية احترافية.
+        </p>
+      </section>
+
+      <section id="contact" style="padding: 16px 0 10px;">
+        <div class="panel" style="border-radius: 28px; padding: 28px;">
+          <h2 class="section-title" style="margin-top: 0;">جاهز للاستخدام</h2>
+          <p class="section-copy" style="margin-bottom: 0; max-width: none;">
+            تم تجهيز الملف كصفحة رئيسية كاملة. إذا أردت، أستطيع في خطوة لاحقة تحويل نفس التصميم
+            إلى نسخة مخصصة باسمك ومحتواك النهائي.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      تصميم عربي حديث — ملف واحد جاهز للرفع والاستخدام.
+    </footer>
+  </div>
+</body>
+</html>
