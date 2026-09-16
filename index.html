@@ -368,7 +368,7 @@
         </div>
       </section>
 
-      <section id="services" aria-labelledby="services-title">
+      <section id="services" aria-labelledby="services-title" tabindex="-1">
         <h2 class="section-title" id="services-title">مميزات التصميم</h2>
         <p class="section-copy">
           تم بناء الصفحة كملف واحد جاهز للاستخدام، بدون اعتماد على مكتبات خارجية، ليسهل عليك التعديل
@@ -391,7 +391,7 @@
         </div>
       </section>
 
-      <section id="about" class="about-section" aria-labelledby="about-title">
+      <section id="about" class="about-section" aria-labelledby="about-title" tabindex="-1">
         <h2 class="section-title" id="about-title">فكرة الواجهة</h2>
         <p class="section-copy">
           الهدف من هذا التصميم هو رفع جودة العرض البصري للموقع مع الحفاظ على البساطة وسهولة الاستخدام،
@@ -399,7 +399,7 @@
         </p>
       </section>
 
-      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <section id="contact" class="contact-section" aria-labelledby="contact-title" tabindex="-1">
         <div class="panel contact-panel">
           <h2 class="section-title contact-title" id="contact-title">جاهز للاستخدام</h2>
           <p class="section-copy contact-copy">
@@ -414,5 +414,42 @@
       تصميم عربي حديث — ملف واحد جاهز للرفع والاستخدام.
     </footer>
   </div>
+  <script>
+    const hashLinks = document.querySelectorAll('a[href^="#"]');
+    const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+
+    function updateCurrentLink() {
+      const currentHash = window.location.hash;
+      navLinks.forEach((link) => {
+        const isCurrent = currentHash && link.getAttribute('href') === currentHash;
+        if (isCurrent) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    function focusTarget(hash) {
+      if (!hash) return;
+      const target = document.querySelector(hash);
+      if (target && typeof target.focus === 'function') {
+        target.focus();
+      }
+    }
+
+    hashLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const targetHash = link.getAttribute('href');
+        requestAnimationFrame(() => focusTarget(targetHash));
+      });
+    });
+
+    window.addEventListener('hashchange', updateCurrentLink);
+    window.addEventListener('load', () => {
+      updateCurrentLink();
+      focusTarget(window.location.hash);
+    });
+  </script>
 </body>
 </html>
