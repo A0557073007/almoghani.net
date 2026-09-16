@@ -449,7 +449,9 @@
     hashLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const targetHash = link.getAttribute('href');
-        requestAnimationFrame(() => focusTarget(targetHash));
+        if (targetHash && targetHash !== window.location.hash) {
+          requestAnimationFrame(() => focusTarget(targetHash));
+        }
       });
     });
 
