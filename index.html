@@ -43,24 +43,6 @@
       margin: 0 auto;
     }
 
-    .top-anchor {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: rgba(8, 18, 33, 0.94);
-      border: 1px solid var(--line);
-      color: var(--text);
-      transform: translateY(-180%);
-      transition: transform 0.2s ease;
-      z-index: 20;
-    }
-
-    .top-anchor:focus {
-      transform: translateY(0);
-    }
-
     .topbar {
       display: flex;
       align-items: center;
@@ -320,7 +302,6 @@
 </head>
 <body>
   <div class="container">
-    <a id="top" class="top-anchor" href="#top">بداية الصفحة</a>
     <header class="topbar">
       <a href="#top" class="logo">
         <span class="logo-mark">م</span>
@@ -333,7 +314,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="top" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <h1 id="hero-title">واجهة حديثة تعطي انطباعًا أقوى وأكثر احترافية.</h1>
@@ -342,8 +323,8 @@
             حتى يظهر الموقع بشكل أفضل وأكثر جاذبية من الشكل البسيط السابق.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#services" data-section-link="true">استعرض التصميم</a>
-            <a class="btn btn-secondary" href="#contact" data-section-link="true">ابدأ الآن</a>
+            <a class="btn btn-primary" href="#services" data-focus-target="true">استعرض التصميم</a>
+            <a class="btn btn-secondary" href="#contact" data-focus-target="true">ابدأ الآن</a>
           </div>
 
           <div class="stats">
@@ -462,7 +443,7 @@
 
     document.addEventListener('click', (event) => {
       if (!(event.target instanceof Element)) return;
-      const link = event.target.closest('[data-section-link="true"]');
+      const link = event.target.closest('[data-section-link="true"], [data-focus-target="true"]');
       if (!link) return;
       const targetHash = link.getAttribute('href');
       if (!targetHash) return;
