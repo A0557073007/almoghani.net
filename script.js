@@ -39,6 +39,10 @@ if (menuButton && nav) {
     });
   });
 
-  mobileQuery.addEventListener('change', syncMenuState);
+  if (typeof mobileQuery.addEventListener === 'function') {
+    mobileQuery.addEventListener('change', syncMenuState);
+  } else if (typeof mobileQuery.addListener === 'function') {
+    mobileQuery.addListener(syncMenuState);
+  }
   syncMenuState();
 }
