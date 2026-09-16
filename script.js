@@ -8,9 +8,8 @@ if (year) {
 
 if (menuBtn && nav) {
   menuBtn.addEventListener('click', () => {
-    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('open');
+    const isOpen = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   });
 
   nav.querySelectorAll('a').forEach((link) => {
