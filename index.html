@@ -424,6 +424,7 @@
   <script>
     const hashLinks = document.querySelectorAll('a[href^="#"]');
     const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    let shouldFocusOnHashChange = false;
 
     function updateCurrentLink(currentHash = window.location.hash) {
       navLinks.forEach((link) => {
@@ -453,19 +454,19 @@
         if (targetHash === window.location.hash) {
           focusTarget(targetHash);
         } else {
-          requestAnimationFrame(() => focusTarget(targetHash));
+          shouldFocusOnHashChange = true;
         }
       });
     });
 
     window.addEventListener('hashchange', () => {
       updateCurrentLink();
-      focusTarget(window.location.hash);
+      if (shouldFocusOnHashChange) {
+        focusTarget(window.location.hash);
+        shouldFocusOnHashChange = false;
+      }
     });
-    window.addEventListener('load', () => {
-      updateCurrentLink();
-      focusTarget(window.location.hash);
-    });
+    window.addEventListener('load', updateCurrentLink);
   </script>
 </body>
 </html>
