@@ -13,6 +13,8 @@ if (menuButton && nav) {
     const expanded = menuButton.getAttribute('aria-expanded') === 'true';
 
     if (mobileQuery.matches) {
+      menuButton.setAttribute('aria-hidden', 'false');
+      menuButton.removeAttribute('tabindex');
       nav.setAttribute('aria-hidden', String(!expanded));
       nav.classList.toggle('open', expanded);
       return;
@@ -21,6 +23,8 @@ if (menuButton && nav) {
     nav.classList.remove('open');
     nav.setAttribute('aria-hidden', 'false');
     menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-hidden', 'true');
+    menuButton.setAttribute('tabindex', '-1');
   };
 
   menuButton.addEventListener('click', () => {
