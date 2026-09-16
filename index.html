@@ -425,8 +425,7 @@
     const hashLinks = document.querySelectorAll('a[href^="#"]');
     const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 
-    function updateCurrentLink() {
-      const currentHash = window.location.hash;
+    function updateCurrentLink(currentHash = window.location.hash) {
       navLinks.forEach((link) => {
         const isCurrent = currentHash && link.getAttribute('href') === currentHash;
         if (isCurrent) {
@@ -449,8 +448,11 @@
     hashLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const targetHash = link.getAttribute('href');
-        updateCurrentLink();
-        if (targetHash && targetHash !== window.location.hash) {
+        if (!targetHash) return;
+        updateCurrentLink(targetHash);
+        if (targetHash === window.location.hash) {
+          focusTarget(targetHash);
+        } else {
           requestAnimationFrame(() => focusTarget(targetHash));
         }
       });
