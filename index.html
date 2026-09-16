@@ -432,7 +432,8 @@
 
     function focusTarget(hash) {
       if (!hash) return;
-      const target = document.querySelector(hash);
+      const targetId = decodeURIComponent(hash.slice(1));
+      const target = document.getElementById(targetId);
       if (target && typeof target.focus === 'function') {
         target.focus();
       }
@@ -445,7 +446,10 @@
       });
     });
 
-    window.addEventListener('hashchange', updateCurrentLink);
+    window.addEventListener('hashchange', () => {
+      updateCurrentLink();
+      focusTarget(window.location.hash);
+    });
     window.addEventListener('load', () => {
       updateCurrentLink();
       focusTarget(window.location.hash);
