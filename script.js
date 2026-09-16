@@ -8,6 +8,17 @@ if (yearElement) {
 
 if (menuButton && nav) {
   const mobileQuery = window.matchMedia('(max-width: 760px)');
+  const navLinks = nav.querySelectorAll('a');
+
+  const setLinksTabbable = (isTabbable) => {
+    navLinks.forEach((link) => {
+      if (isTabbable) {
+        link.removeAttribute('tabindex');
+      } else {
+        link.setAttribute('tabindex', '-1');
+      }
+    });
+  };
 
   const syncMenuState = () => {
     const expanded = menuButton.getAttribute('aria-expanded') === 'true';
@@ -17,6 +28,7 @@ if (menuButton && nav) {
       menuButton.removeAttribute('tabindex');
       nav.setAttribute('aria-hidden', String(!expanded));
       nav.classList.toggle('open', expanded);
+      setLinksTabbable(expanded);
       return;
     }
 
@@ -25,6 +37,7 @@ if (menuButton && nav) {
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-hidden', 'true');
     menuButton.setAttribute('tabindex', '-1');
+    setLinksTabbable(true);
   };
 
   menuButton.addEventListener('click', () => {
@@ -35,7 +48,7 @@ if (menuButton && nav) {
     syncMenuState();
   });
 
-  nav.querySelectorAll('a').forEach((link) => {
+  navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       if (!mobileQuery.matches) return;
 

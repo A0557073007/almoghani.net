@@ -77,14 +77,6 @@ a {
   font-size: 0.95rem;
 }
 
-.site-nav[aria-hidden="true"] {
-  display: none;
-}
-
-.site-nav[aria-hidden="false"] {
-  display: flex;
-}
-
 .site-nav a {
   padding: 0.45rem 0.7rem;
   border-radius: 8px;
@@ -342,6 +334,14 @@ main {
     padding: 0.8rem 5%;
     gap: 0.2rem;
     background: rgba(8, 22, 44, 0.98);
+  }
+
+  .site-nav[aria-hidden="true"] {
+    display: none;
+  }
+
+  .site-nav[aria-hidden="false"] {
+    display: flex;
   }
 
   .site-nav.open {
