@@ -43,6 +43,12 @@
       margin: 0 auto;
     }
 
+    .top-anchor {
+      display: block;
+      height: 0;
+      overflow: hidden;
+    }
+
     .topbar {
       display: flex;
       align-items: center;
@@ -302,7 +308,8 @@
 </head>
 <body>
   <div class="container">
-    <header class="topbar" id="top">
+    <div id="top" class="top-anchor" tabindex="-1" aria-label="بداية الصفحة"></div>
+    <header class="topbar">
       <a href="#top" class="logo">
         <span class="logo-mark">م</span>
         <span lang="en">Almoghani</span>
@@ -432,7 +439,7 @@
 
     function focusTarget(hash) {
       if (!hash) return;
-      const targetId = decodeURIComponent(hash.slice(1));
+      const targetId = hash.slice(1);
       const target = document.getElementById(targetId);
       if (target && typeof target.focus === 'function') {
         target.focus();
