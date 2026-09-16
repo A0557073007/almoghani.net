@@ -33,6 +33,11 @@
 
     a { color: inherit; text-decoration: none; }
 
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
     .container {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
@@ -122,13 +127,6 @@
     }
 
     .btn:hover { transform: translateY(-2px); }
-
-    .btn:focus-visible,
-    .nav a:focus-visible,
-    .logo:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
-    }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
