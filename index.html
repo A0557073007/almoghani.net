@@ -233,6 +233,28 @@
       font-size: 0.92rem;
     }
 
+    .about-section {
+      padding-top: 34px;
+    }
+
+    .contact-section {
+      padding: 16px 0 10px;
+    }
+
+    .contact-panel {
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .contact-title {
+      margin-top: 0;
+    }
+
+    .contact-copy {
+      margin-bottom: 0;
+      max-width: none;
+    }
+
     @media (max-width: 900px) {
       .hero,
       .stats,
@@ -253,11 +275,11 @@
 <body>
   <div class="container">
     <header class="topbar">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-mark">م</span>
         <span>almoghani</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" aria-label="التنقل الرئيسي">
         <a href="#services">الخدمات</a>
         <a href="#about">عن التصميم</a>
         <a href="#contact">التواصل</a>
@@ -341,7 +363,7 @@
         </div>
       </section>
 
-      <section id="about" style="padding-top: 34px;">
+      <section id="about" class="about-section">
         <h2 class="section-title">فكرة الواجهة</h2>
         <p class="section-copy">
           الهدف من هذا التصميم هو رفع جودة العرض البصري للموقع مع الحفاظ على البساطة وسهولة الاستخدام،
@@ -349,10 +371,10 @@
         </p>
       </section>
 
-      <section id="contact" style="padding: 16px 0 10px;">
-        <div class="panel" style="border-radius: 28px; padding: 28px;">
-          <h2 class="section-title" style="margin-top: 0;">جاهز للاستخدام</h2>
-          <p class="section-copy" style="margin-bottom: 0; max-width: none;">
+      <section id="contact" class="contact-section">
+        <div class="panel contact-panel">
+          <h2 class="section-title contact-title">جاهز للاستخدام</h2>
+          <p class="section-copy contact-copy">
             تم تجهيز الملف كصفحة رئيسية كاملة. إذا أردت، أستطيع في خطوة لاحقة تحويل نفس التصميم
             إلى نسخة مخصصة باسمك ومحتواك النهائي.
           </p>
