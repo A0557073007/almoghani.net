@@ -461,6 +461,7 @@
     }
 
     document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
       const link = event.target.closest('[data-section-link="true"]');
       if (!link) return;
       const targetHash = link.getAttribute('href');
@@ -476,7 +477,10 @@
       syncCurrentLink();
       focusTarget(window.location.hash);
     });
-    window.addEventListener('load', syncCurrentLink);
+    window.addEventListener('load', () => {
+      syncCurrentLink();
+      focusTarget(window.location.hash);
+    });
   </script>
 </body>
 </html>
