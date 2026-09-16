@@ -303,7 +303,7 @@
 <body>
   <div class="container">
     <header class="topbar">
-      <a href="#top" class="logo">
+      <a href="#top" class="logo" data-focus-target="true">
         <span class="logo-mark">م</span>
         <span lang="en">Almoghani</span>
       </a>
@@ -416,6 +416,7 @@
   </div>
   <script>
     const navLinks = document.querySelectorAll('.nav a[data-section-link="true"]');
+    const managedHashes = new Set(['#top', '#services', '#about', '#contact']);
 
     function updateCurrentLink(currentHash = window.location.hash) {
       navLinks.forEach((link) => {
@@ -442,6 +443,7 @@
     }
 
     document.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (!(event.target instanceof Element)) return;
       const link = event.target.closest('a[data-section-link="true"], a[data-focus-target="true"]');
       if (!link) return;
@@ -453,14 +455,17 @@
       }, 0);
     });
 
-    window.addEventListener('hashchange', syncCurrentLink);
-    window.addEventListener('popstate', () => {
+    window.addEventListener('hashchange', () => {
       syncCurrentLink();
-      focusTarget(window.location.hash);
+      if (managedHashes.has(window.location.hash)) {
+        focusTarget(window.location.hash);
+      }
     });
     window.addEventListener('load', () => {
       syncCurrentLink();
-      focusTarget(window.location.hash);
+      if (managedHashes.has(window.location.hash)) {
+        focusTarget(window.location.hash);
+      }
     });
   </script>
 </body>
