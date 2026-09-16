@@ -44,9 +44,21 @@
     }
 
     .top-anchor {
-      display: block;
-      height: 0;
-      overflow: hidden;
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(8, 18, 33, 0.94);
+      border: 1px solid var(--line);
+      color: var(--text);
+      transform: translateY(-180%);
+      transition: transform 0.2s ease;
+      z-index: 20;
+    }
+
+    .top-anchor:focus {
+      transform: translateY(0);
     }
 
     .topbar {
@@ -308,7 +320,7 @@
 </head>
 <body>
   <div class="container">
-    <div id="top" class="top-anchor" tabindex="-1" aria-label="بداية الصفحة"></div>
+    <a id="top" class="top-anchor" href="#top">بداية الصفحة</a>
     <header class="topbar">
       <a href="#top" class="logo">
         <span class="logo-mark">م</span>
@@ -423,7 +435,6 @@
   </div>
   <script>
     const navLinks = document.querySelectorAll('.nav [data-section-link="true"]');
-    const focusableHashLinks = document.querySelectorAll('[data-section-link="true"]');
 
     function updateCurrentLink(currentHash = window.location.hash) {
       navLinks.forEach((link) => {
@@ -449,19 +460,22 @@
       updateCurrentLink();
     }
 
-    focusableHashLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        const targetHash = link.getAttribute('href');
-        if (!targetHash) return;
-        window.setTimeout(() => {
-          updateCurrentLink(window.location.hash || targetHash);
-          focusTarget(window.location.hash || targetHash);
-        }, 0);
-      });
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('[data-section-link="true"]');
+      if (!link) return;
+      const targetHash = link.getAttribute('href');
+      if (!targetHash) return;
+      window.setTimeout(() => {
+        updateCurrentLink(window.location.hash || targetHash);
+        focusTarget(window.location.hash || targetHash);
+      }, 0);
     });
 
     window.addEventListener('hashchange', syncCurrentLink);
-    window.addEventListener('popstate', syncCurrentLink);
+    window.addEventListener('popstate', () => {
+      syncCurrentLink();
+      focusTarget(window.location.hash);
+    });
     window.addEventListener('load', syncCurrentLink);
   </script>
 </body>
