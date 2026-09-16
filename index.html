@@ -424,7 +424,6 @@
   <script>
     const navLinks = document.querySelectorAll('.nav a[href^="#"]');
     const focusableHashLinks = document.querySelectorAll('.nav a[href^="#"], .btn[href^="#"]');
-    let shouldFocusOnHashChange = false;
 
     function updateCurrentLink(currentHash = window.location.hash) {
       navLinks.forEach((link) => {
@@ -450,22 +449,14 @@
       link.addEventListener('click', () => {
         const targetHash = link.getAttribute('href');
         if (!targetHash) return;
-        updateCurrentLink(targetHash);
-        if (targetHash === window.location.hash) {
-          focusTarget(targetHash);
-        } else {
-          shouldFocusOnHashChange = true;
-        }
+        window.setTimeout(() => {
+          updateCurrentLink(window.location.hash || targetHash);
+          focusTarget(window.location.hash || targetHash);
+        }, 0);
       });
     });
 
-    window.addEventListener('hashchange', () => {
-      updateCurrentLink();
-      if (shouldFocusOnHashChange) {
-        focusTarget(window.location.hash);
-        shouldFocusOnHashChange = false;
-      }
-    });
+    window.addEventListener('hashchange', updateCurrentLink);
     window.addEventListener('load', updateCurrentLink);
   </script>
 </body>
