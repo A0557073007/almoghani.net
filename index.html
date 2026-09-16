@@ -315,9 +315,9 @@
         <span lang="en">Almoghani</span>
       </a>
       <nav class="nav" aria-label="التنقل الرئيسي">
-        <a href="#services">الخدمات</a>
-        <a href="#about">عن التصميم</a>
-        <a href="#contact">التواصل</a>
+        <a href="#services" data-section-link="true">الخدمات</a>
+        <a href="#about" data-section-link="true">عن التصميم</a>
+        <a href="#contact" data-section-link="true">التواصل</a>
       </nav>
     </header>
 
@@ -330,8 +330,8 @@
             حتى يظهر الموقع بشكل أفضل وأكثر جاذبية من الشكل البسيط السابق.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#services">استعرض التصميم</a>
-            <a class="btn btn-secondary" href="#contact">ابدأ الآن</a>
+            <a class="btn btn-primary" href="#services" data-section-link="true">استعرض التصميم</a>
+            <a class="btn btn-secondary" href="#contact" data-section-link="true">ابدأ الآن</a>
           </div>
 
           <div class="stats">
@@ -422,8 +422,8 @@
     </footer>
   </div>
   <script>
-    const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-    const focusableHashLinks = document.querySelectorAll('.nav a[href^="#"], .btn[href^="#"]');
+    const navLinks = document.querySelectorAll('.nav [data-section-link="true"]');
+    const focusableHashLinks = document.querySelectorAll('[data-section-link="true"]');
 
     function updateCurrentLink(currentHash = window.location.hash) {
       navLinks.forEach((link) => {
@@ -445,6 +445,10 @@
       }
     }
 
+    function syncCurrentLink() {
+      updateCurrentLink();
+    }
+
     focusableHashLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const targetHash = link.getAttribute('href');
@@ -456,8 +460,9 @@
       });
     });
 
-    window.addEventListener('hashchange', updateCurrentLink);
-    window.addEventListener('load', updateCurrentLink);
+    window.addEventListener('hashchange', syncCurrentLink);
+    window.addEventListener('popstate', syncCurrentLink);
+    window.addEventListener('load', syncCurrentLink);
   </script>
 </body>
 </html>
