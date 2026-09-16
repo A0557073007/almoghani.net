@@ -303,14 +303,14 @@
 <body>
   <div class="container">
     <header class="topbar">
-      <a href="#top" class="logo" data-focus-target="true">
+      <a href="#top" class="logo" data-current-link="true" data-focus-target="true">
         <span class="logo-mark">م</span>
         <span lang="en">Almoghani</span>
       </a>
       <nav class="nav" aria-label="التنقل الرئيسي">
-        <a href="#services" data-section-link="true">الخدمات</a>
-        <a href="#about" data-section-link="true">عن التصميم</a>
-        <a href="#contact" data-section-link="true">التواصل</a>
+        <a href="#services" data-section-link="true" data-current-link="true">الخدمات</a>
+        <a href="#about" data-section-link="true" data-current-link="true">عن التصميم</a>
+        <a href="#contact" data-section-link="true" data-current-link="true">التواصل</a>
       </nav>
     </header>
 
@@ -415,11 +415,11 @@
     </footer>
   </div>
   <script>
-    const navLinks = document.querySelectorAll('.nav a[data-section-link="true"]');
+    const currentLinks = document.querySelectorAll('a[data-current-link="true"]');
     const managedHashes = new Set(['#top', '#services', '#about', '#contact']);
 
     function updateCurrentLink(currentHash = window.location.hash) {
-      navLinks.forEach((link) => {
+      currentLinks.forEach((link) => {
         const isCurrent = currentHash && link.getAttribute('href') === currentHash;
         if (isCurrent) {
           link.setAttribute('aria-current', 'location');
@@ -449,10 +449,10 @@
       if (!link) return;
       const targetHash = link.getAttribute('href');
       if (!targetHash) return;
-      window.setTimeout(() => {
-        updateCurrentLink(window.location.hash || targetHash);
-        focusTarget(window.location.hash || targetHash);
-      }, 0);
+      if (targetHash === window.location.hash && managedHashes.has(targetHash)) {
+        updateCurrentLink(targetHash);
+        focusTarget(targetHash);
+      }
     });
 
     window.addEventListener('hashchange', () => {
