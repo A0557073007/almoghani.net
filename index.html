@@ -422,8 +422,8 @@
     </footer>
   </div>
   <script>
-    const hashLinks = document.querySelectorAll('a[href^="#"]');
     const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    const focusableHashLinks = document.querySelectorAll('.nav a[href^="#"], .btn[href^="#"]');
     let shouldFocusOnHashChange = false;
 
     function updateCurrentLink(currentHash = window.location.hash) {
@@ -446,7 +446,7 @@
       }
     }
 
-    hashLinks.forEach((link) => {
+    focusableHashLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const targetHash = link.getAttribute('href');
         if (!targetHash) return;
