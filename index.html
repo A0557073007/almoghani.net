@@ -89,10 +89,19 @@
     .panel,
     .stat,
     .service {
-      background: var(--card);
+      background: rgba(13, 27, 47, 0.88);
       border: 1px solid var(--line);
-      backdrop-filter: blur(18px);
       box-shadow: var(--shadow);
+    }
+
+    @supports (backdrop-filter: blur(18px)) {
+      .hero-card,
+      .panel,
+      .stat,
+      .service {
+        background: var(--card);
+        backdrop-filter: blur(18px);
+      }
     }
 
     .hero-copy h1 {
@@ -128,6 +137,11 @@
 
     .btn:hover,
     .btn:focus-visible { transform: translateY(-2px); }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
