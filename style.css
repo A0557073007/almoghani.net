@@ -77,6 +77,14 @@ a {
   font-size: 0.95rem;
 }
 
+.site-nav[aria-hidden="true"] {
+  display: none;
+}
+
+.site-nav[aria-hidden="false"] {
+  display: flex;
+}
+
 .site-nav a {
   padding: 0.45rem 0.7rem;
   border-radius: 8px;
@@ -326,7 +334,6 @@ main {
   }
 
   .site-nav {
-    display: none;
     position: absolute;
     top: 100%;
     right: 0;

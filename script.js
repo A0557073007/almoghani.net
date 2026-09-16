@@ -33,6 +33,8 @@ if (menuButton && nav) {
 
   nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
+      if (!mobileQuery.matches) return;
+
       nav.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
       syncMenuState();
