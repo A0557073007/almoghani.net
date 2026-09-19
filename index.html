@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ALMOGHANI">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>ALMOGHANI</title>
+<style>
+*{box-sizing:border-box} html,body{margin:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{min-height:100vh}
+.app{max-width:1100px;margin:auto;background:#fff}
+.hero{display:block;width:100%;height:auto}
+.install{position:fixed;left:16px;bottom:18px;z-index:5;border:0;border-radius:999px;padding:12px 18px;background:#111;color:#fff;font-weight:800;box-shadow:0 8px 24px #0003;display:none}
+.tip{display:none;position:fixed;inset:auto 12px 76px 12px;background:#111;color:white;padding:14px 16px;border-radius:16px;z-index:10;text-align:center;line-height:1.7;box-shadow:0 12px 35px #0004}
+@media(max-width:700px){.app{width:100%}.hero{width:100%}}
+</style>
+</head>
+<body>
+<main class="app"><img class="hero" src="design.jpg" alt="ALMOGHANI"></main>
+<button id="install" class="install">تثبيت التطبيق</button>
+<div id="tip" class="tip">على iPhone: اضغط زر المشاركة في Safari ثم اختر «إضافة إلى الشاشة الرئيسية».</div>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'))}
+let deferredPrompt;
+const btn=document.getElementById('install'), tip=document.getElementById('tip');
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;btn.style.display='block'});
+btn.onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;btn.style.display='none'}};
+const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+const standalone=window.navigator.standalone===true;
+if(isiOS&&!standalone){btn.style.display='block';btn.onclick=()=>{tip.style.display='block';setTimeout(()=>tip.style.display='none',7000)}}
+</script>
+</body></html>
