@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ALMOGHANI</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f5f0e6}
+main{position:relative;width:min(100%,1024px);margin:auto}
+img{display:block;width:100%;height:auto}
+.hot{position:absolute;display:block;z-index:5;border-radius:18px;-webkit-tap-highlight-color:transparent}
+.hot:focus{outline:2px solid rgba(194,145,40,.55);outline-offset:-2px}
+.ai-chat-btn{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:8px;padding:12px 17px;border:2px solid #c29128;border-radius:999px;background:#07583f;color:#fff;text-decoration:none;font:700 15px Tahoma,Arial,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.22);-webkit-tap-highlight-color:transparent}
+.ai-chat-btn:active{transform:scale(.97)}
+.ai-chat-btn .icon{font-size:20px}
+.ai-panel{position:fixed;right:14px;bottom:78px;width:min(390px,calc(100vw - 28px));height:min(610px,72vh);z-index:10000;background:#fffaf0;border:2px solid #c29128;border-radius:24px;box-shadow:0 18px 55px rgba(0,0,0,.28);overflow:hidden;display:none;font-family:Tahoma,Arial,sans-serif}
+.ai-panel.open{display:flex;flex-direction:column}
+.ai-head{background:#07583f;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #c29128}
+.ai-head b{font-size:17px}.ai-close{border:0;background:transparent;color:#fff;font-size:24px;cursor:pointer}
+.ai-messages{flex:1;overflow:auto;padding:14px;background:#f8f3e8}
+.ai-msg{max-width:88%;padding:10px 12px;margin:7px 0;border-radius:15px;line-height:1.65;font-size:14px;white-space:pre-wrap}
+.ai-msg.bot{background:#fff;border:1px solid #e3d2a4;margin-left:auto}.ai-msg.user{background:#07583f;color:#fff;margin-right:auto}
+.ai-note{font-size:10px;color:#746b5e;text-align:center;padding:4px 12px}
+.ai-form{display:flex;gap:7px;padding:10px;background:#fff;border-top:1px solid #e4d8bc}.ai-input{flex:1;border:1px solid #cdbd98;border-radius:14px;padding:11px;font:14px Tahoma,Arial;outline:none}.ai-send{border:0;border-radius:14px;background:#07583f;color:#fff;padding:0 16px;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body><main>
+<img src="design.png" alt="ALMOGHANI">
+<a class="hot" href="section-01.html" aria-label="القسم 1" style="left:2.4%;top:29.3%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-02.html" aria-label="القسم 2" style="left:21.8%;top:29.3%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-03.html" aria-label="القسم 3" style="left:41.2%;top:29.3%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-04.html" aria-label="القسم 4" style="left:60.6%;top:29.3%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-05.html" aria-label="القسم 5" style="left:80%;top:29.3%;width:17.6%;height:12.3%"></a>
+<a class="hot" href="section-06.html" aria-label="القسم 6" style="left:2.4%;top:42.4%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-07.html" aria-label="القسم 7" style="left:21.8%;top:42.4%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-08.html" aria-label="القسم 8" style="left:41.2%;top:42.4%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-09.html" aria-label="القسم 9" style="left:60.6%;top:42.4%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-10.html" aria-label="القسم 10" style="left:80%;top:42.4%;width:17.6%;height:12.3%"></a>
+<a class="hot" href="section-11.html" aria-label="القسم 11" style="left:2.4%;top:55.8%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-12.html" aria-label="القسم 12" style="left:21.8%;top:55.8%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-13.html" aria-label="القسم 13" style="left:41.2%;top:55.8%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-14.html" aria-label="القسم 14" style="left:60.6%;top:55.8%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-15.html" aria-label="القسم 15" style="left:80%;top:55.8%;width:17.6%;height:12.3%"></a>
+<a class="hot" href="section-16.html" aria-label="القسم 16" style="left:2.4%;top:69%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-17.html" aria-label="القسم 17" style="left:21.8%;top:69%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-18.html" aria-label="القسم 18" style="left:41.2%;top:69%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-19.html" aria-label="القسم 19" style="left:60.6%;top:69%;width:18.3%;height:12.3%"></a>
+<a class="hot" href="section-20.html" aria-label="القسم 20" style="left:80%;top:69%;width:17.6%;height:12.3%"></a>
+<a class="hot" href="quran.html" aria-label="القرآن الكريم" style="left:23%;top:16%;width:54%;height:12.5%"></a>
+<a class="hot" href="https://wa.me/966557073007" aria-label="واتساب" style="left:33%;top:84.2%;width:5%;height:4%"></a>
+<a class="hot" href="https://x.com/op430" aria-label="X" style="left:38.5%;top:84.2%;width:5%;height:4%"></a>
+<a class="hot" href="https://instagram.com/aaaaa287769" aria-label="إنستجرام" style="left:44%;top:84.2%;width:5%;height:4%"></a>
+<a class="hot" href="mailto:ahmed@almoghani.net" aria-label="البريد الإلكتروني" style="left:65.5%;top:84.2%;width:5%;height:4%"></a>
+</main>
+<button class="ai-chat-btn" id="aiOpen" type="button" aria-label="اسأل ALMOGHANI AI"><span class="icon">🤖</span><span>اسأل ALMOGHANI AI</span></button>
+<section class="ai-panel" id="aiPanel" aria-label="محادثة ALMOGHANI AI">
+ <div class="ai-head"><b>🤖 ALMOGHANI AI</b><button class="ai-close" id="aiClose" type="button">×</button></div>
+ <div class="ai-messages" id="aiMessages"><div class="ai-msg bot">السلام عليكم 👋 أنا مساعد ALMOGHANI AI. اكتب سؤالك وسأحاول مساعدتك.</div></div>
+ <div class="ai-note">إجابات تعليمية عامة، وللفتاوى الشخصية راجع أهل العلم الموثوقين.</div>
+ <form class="ai-form" id="aiForm"><input class="ai-input" id="aiInput" maxlength="2000" placeholder="اكتب سؤالك هنا…" autocomplete="off"><button class="ai-send" type="submit">إرسال</button></form>
+</section>
+<audio id="quranAudio" preload="auto" loop playsinline>
+  <source src="quran.mp3" type="audio/mpeg">
+</audio>
+<script>
+(function(){
+  const audio=document.getElementById('quranAudio');
+  let started=false;
+  function startAudio(){
+    if(started) return;
+    audio.volume=0.65;
+    const p=audio.play();
+    if(p && typeof p.then==='function'){
+      p.then(()=>{started=true;cleanup();}).catch(()=>{});
+    }
+  }
+  function cleanup(){
+    document.removeEventListener('touchstart',startAudio,true);
+    document.removeEventListener('pointerdown',startAudio,true);
+    document.removeEventListener('click',startAudio,true);
+  }
+  document.addEventListener('touchstart',startAudio,true);
+  document.addEventListener('pointerdown',startAudio,true);
+  document.addEventListener('click',startAudio,true);
+})();
+</script>
+
+<script>
+(function(){
+ const ENDPOINT='https://almoghani-ai-production.up.railway.app/api/chat';
+ const panel=document.getElementById('aiPanel'), open=document.getElementById('aiOpen'), close=document.getElementById('aiClose');
+ const form=document.getElementById('aiForm'), input=document.getElementById('aiInput'), msgs=document.getElementById('aiMessages');
+ open.onclick=()=>{panel.classList.add('open');setTimeout(()=>input.focus(),100)};
+ close.onclick=()=>panel.classList.remove('open');
+ function add(t,c){const d=document.createElement('div');d.className='ai-msg '+c;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
+ form.addEventListener('submit',async(e)=>{e.preventDefault();const message=input.value.trim();if(!message)return;add(message,'user');input.value='';input.disabled=true;const wait=add('جاري كتابة الإجابة…','bot');try{const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message})});const data=await r.json().catch(()=>({}));wait.textContent=data.reply||data.error||'تعذر الحصول على إجابة الآن.'}catch(_){wait.textContent='خدمة ALMOGHANI AI لم تكتمل بعد. حاول مرة أخرى بعد تشغيل الخادم.'}finally{input.disabled=false;input.focus();msgs.scrollTop=msgs.scrollHeight}});
+})();
+</script>
+</body></html>
