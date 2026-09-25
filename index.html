@@ -1,238 +1,301 @@
+أعتذر عن اللبس البسيط؛ نظراً لأنني أعمل كذكاء اصطناعي نصي، فإن ملف الـ ZIP التلقائي يتم توليده داخل واجهة أداة العرض البرمجية (Canvas) في نافذة المعاينة.
+ولكن لا تقلق أبداً! لقد قمت بجمع وترتيب الكود البرمجي الكامل والجاهز بنسبة 100% لملف index.html أدناه.
+كل ما عليك فعله هو:
+ * نسخ الكود أدناه بالكامل.
+ * لصقه في ملف نصي على جهازك وتسميته index.html.
+ * رفعه مباشرة إلى سيرفر موقعك almoghani.net ليظهر التصميم الملكي بالفخامة التي طلبتها مع قسم القرآن الكريم وزر الواتساب وتغيير كلمة "فعاليات" إلى "القرآن الكريم".
+إليك الكود المعتمد والجاهز للنسخ:
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>almoghani.net  - ahmed Designer</title>
-   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
-   <!-- FontAwesome Icons -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
-   <style>
-       * {
-           font-family: 'Tajawal', sans-serif;
-           -webkit-tap-highlight-color: transparent;
-       }
-
-
-       .font-kufi {
-           font-family: 'Reem Kufi', sans-serif;
-       }
-
-
-       /* Gold Gradient Text & Elements */
-       .gold-text {
-           background: linear-gradient(135deg, #FFF099 0%, #F1C40F 30%, #D4AC0D 60%, #856404 100%);
-           -webkit-background-clip: text;
-           -webkit-text-fill-color: transparent;
-       }
-
-
-       .gold-text-bright {
-           background: linear-gradient(135deg, #FFFFFF 0%, #FFE57F 50%, #D4AC0D 100%);
-           -webkit-background-clip: text;
-           -webkit-text-fill-color: transparent;
-       }
-
-
-       .gold-border {
-           border: 1px solid rgba(212, 172, 13, 0.4);
-           box-shadow: 0 0 15px rgba(212, 172, 13, 0.15), inset 0 0 15px rgba(212, 172, 13, 0.05);
-       }
-
-
-       .gold-border-glow {
-           border: 1px solid rgba(241, 196, 15, 0.7);
-           box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
-       }
-
-
-       .gold-bg-gradient {
-           background: linear-gradient(135deg, #d4ac0d 0%, #f1c40f 50%, #b7950b 100%);
-       }
-
-
-       /* Dark Card Styling */
-       .glass-card {
-           background: rgba(18, 18, 20, 0.85);
-           backdrop-filter: blur(12px);
-           border: 1px solid rgba(212, 172, 13, 0.25);
-       }
-
-
-       .glass-card:hover, .glass-card:active {
-           border-color: rgba(241, 196, 15, 0.6);
-           transform: translateY(-2px);
-           transition: all 0.3s ease;
-       }
-
-
-       /* Background Elements */
-       body {
-           background-color: #0a0a0c;
-           background-image:
-               radial-gradient(circle at 50% 0%, rgba(212, 172, 13, 0.15) 0%, transparent 60%),
-               radial-gradient(circle at 50% 100%, rgba(212, 172, 13, 0.1) 0%, transparent 50%);
-           color: #f3f4f6;
-           min-height: 100vh;
-           overflow-x: hidden;
-       }
-
-
-       /* Luxury Ornament Frame Lines */
-       .ornament-line {
-           height: 1px;
-           background: linear-gradient(90deg, transparent, rgba(212, 172, 13, 0.6), transparent);
-       }
-
-
-       /* Shimmer Animation */
-       @keyframes shine {
-           0% { background-position: -200% 0; }
-           100% { background-position: 200% 0; }
-       }
-
-
-       .shimmer {
-           background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,229,127,0.2) 50%, rgba(255,255,255,0) 100%);
-           background-size: 200% 100%;
-           animation: shine 3s infinite;
-       }
-
-
-       /* Toast Popup */
-       #toast {
-           transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-       }
-   </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>almoghani.net - المصمم سراب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { font-family: 'Tajawal', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .font-kufi { font-family: 'Reem Kufi', sans-serif; }
+        .gold-text {
+            background: linear-gradient(135deg, #FFF099 0%, #F1C40F 30%, #D4AC0D 60%, #856404 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border: 1px solid rgba(212, 172, 13, 0.4);
+            box-shadow: 0 0 15px rgba(212, 172, 13, 0.15), inset 0 0 15px rgba(212, 172, 13, 0.05);
+        }
+        .glass-card {
+            background: rgba(18, 18, 20, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 172, 13, 0.25);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(241, 196, 15, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.25);
+        }
+        body {
+            background-color: #070709;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212, 172, 13, 0.15) 0%, transparent 60%);
+            color: #f3f4f6;
+            min-height: 100vh;
+        }
+    </style>
 </head>
-<body class="flex justify-center items-center py-0 md:py-6 px-0 md:px-4 antialiased selection:bg-amber-500 selection:text-black">
+<body class="flex justify-center items-center py-0 md:py-6 px-0 md:px-4">
 
+    <!-- Mobile Frame Container -->
+    <div class="w-full max-w-[430px] min-h-screen md:min-h-[880px] bg-[#0d0d10] text-gray-100 flex flex-col justify-between relative shadow-2xl md:rounded-[36px] border-0 md:border md:border-amber-500/40 overflow-hidden pb-8">
+        
+        <!-- Top Golden Trim -->
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-700 via-amber-300 to-amber-700 z-20"></div>
 
-   <div class="w-full max-w-[430px] min-h-screen md:min-h-[880px] bg-[#0d0d10] text-gray-100 flex flex-col justify-between relative shadow-2xl md:rounded-[36px] border-0 md:border md:border-amber-500/30 overflow-hidden pb-10">
+        <div class="p-5 space-y-6 relative z-10">
+            <!-- Header / Crown & Avatar -->
+            <header class="text-center pt-2 relative">
+                <div class="flex justify-center -mb-3 relative z-20">
+                    <div class="w-12 h-12 text-amber-400 drop-shadow-[0_0_10px_rgba(241,196,15,0.8)] animate-bounce flex items-center justify-center">
+                        <i class="fa-solid fa-crown text-3xl"></i>
+                    </div>
+                </div>
 
+                <!-- Avatar Circle -->
+                <div class="relative w-32 h-32 mx-auto mb-3">
+                    <div class="absolute inset-0 rounded-full border-2 border-amber-400/40 animate-spin" style="animation-duration: 20s;"></div>
+                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-amber-400 p-1 bg-black/80 shadow-[0_0_25px_rgba(212,172,13,0.3)]">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" 
+                             alt="المصمم سراب" 
+                             class="w-full h-full object-cover rounded-full">
+                    </div>
+                </div>
 
-       <!-- Top Luxury Border Frame Decor -->
-       <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-700 via-amber-300 to-amber-700 z-20"></div>
-      
-       <div class="p-5 space-y-6 relative z-10">
+                <!-- Title / Name -->
+                <div class="inline-block relative px-4">
+                    <span class="text-xs uppercase tracking-widest text-amber-300/80 font-medium">المصمم</span>
+                    <h1 class="text-4xl font-black font-kufi gold-text tracking-wider py-1 drop-shadow-md">سراب</h1>
+                    <div class="text-xs text-amber-400/70 tracking-widest font-mono">S A R A B</div>
+                </div>
+                
+                <p class="text-xs text-amber-200/60 mt-2">المصمم الاحترافي في جميع التصاميم</p>
+            </header>
 
+            <!-- Services Grid (As in the original poster + Quran Section) -->
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Quran Section Service Card -->
+                <div onclick="openQuranModal()" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group">
+                    <div class="text-right">
+                        <span class="text-amber-400 font-bold text-base block group-hover:scale-105 transition">القرآن الكريم</span>
+                        <span class="text-[11px] text-gray-400 block">صوت، صورة وكتابة</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-book-quran text-lg"></i>
+                    </div>
+                </div>
 
-           <header class="text-center pt-4 relative">
-               <!-- Crown Overlay -->
-               <div class="flex justify-center -mb-4 relative z-20">
-                   <div class="w-12 h-12 text-amber-400 drop-shadow-[0_0_10px_rgba(241,196,15,0.6)] flex items-center justify-center animate-pulse">
-                       <i class="fa-solid me-0 fa-crown text-3xl"></i>
-                   </div>
-               </div>
+                <!-- Service 2 -->
+                <div onclick="openOrderModal('جداول', '$15')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group">
+                    <div class="text-right">
+                        <span class="text-amber-400 font-bold text-base block group-hover:scale-105 transition">$15</span>
+                        <span class="text-[11px] text-gray-400 block">جداول</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-table-cells"></i>
+                    </div>
+                </div>
 
+                <!-- Service 3 -->
+                <div onclick="openOrderModal('صورة ثابته', '$3')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group">
+                    <div class="text-right">
+                        <span class="text-amber-400 font-bold text-base block group-hover:scale-105 transition">$3</span>
+                        <span class="text-[11px] text-gray-400 block">صورة ثابته</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                </div>
 
-               <!-- Avatar Circle with Luxury Frame -->
-               <div class="relative w-36 h-36 mx-auto mb-4">
-                   <div class="absolute inset-0 rounded-full border-2 border-amber-400/50 animate-spin" style="animation-duration: 15s;"></div>
-                   <div class="absolute -inset-1 rounded-full border border-dashed border-amber-300/30"></div>
-                   <div class="w-full h-full rounded-full overflow-hidden border-2 border-amber-400 p-1 bg-black/60 shadow-[0_0_25px_rgba(212,172,13,0.3)]">
-                       <!-- Custom Placeholder avatar matching image style -->
-                       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
-                            alt="almoghani "
-                            class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition duration-500"
-                            onerror="this.src='https://placehold.co/150x150/111/d4ac0d?text=SARAB'">
-                   </div>
-               </div>
+                <!-- Service 4 -->
+                <div onclick="openOrderModal('صورة ترند', '$4')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group">
+                    <div class="text-right">
+                        <span class="text-amber-400 font-bold text-base block group-hover:scale-105 transition">$4</span>
+                        <span class="text-[11px] text-gray-400 block">صورة ترند</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                </div>
 
+                <!-- Service 5 -->
+                <div onclick="openOrderModal('خلفيات روم', '$5')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group">
+                    <div class="text-right">
+                        <span class="text-amber-400 font-bold text-base block group-hover:scale-105 transition">$5</span>
+                        <span class="text-[11px] text-gray-400 block">خلفيات روم</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                    </div>
+                </div>
 
-               <!-- Brand Title -->
-               <div class="inline-block relative px-6 py-1">
-                   <div class="flex items-center justify-center gap-2 mb-1">
-                       <span class="h-[1px] w-8 bg-gradient-to-r from-transparent to-amber-400"></span>
-                       <span class="text-xs uppercase tracking-widest text-amber-300/80 font-medium">المصمم</span>
-                       <span class="h-[1px] w-8 bg-gradient-to-l from-transparent to-amber-400"></span>
-                   </div>
+                <!-- Service 6 -->
+                <div onclick="openOrderModal('خلفيات', '$7')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group">
+                    <div class="text-right">
+                        <span class="text-amber-400 font-bold text-base block group-hover:scale-105 transition">$7</span>
+                        <span class="text-[11px] text-gray-400 block">خلفيات</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Features Bar -->
+            <div class="gold-border rounded-xl p-3 bg-black/60 flex justify-around items-center text-center">
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-bolt text-amber-400 mb-1 text-sm"></i>
+                    <span class="text-[11px] text-gray-300">سرعة في التسليم</span>
+                </div>
+                <div class="h-8 w-[1px] bg-amber-500/30"></div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-circle-check text-amber-400 mb-1 text-sm"></i>
+                    <span class="text-[11px] text-gray-300">جودة عالية</span>
+                </div>
+                <div class="h-8 w-[1px] bg-amber-500/30"></div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-headset text-amber-400 mb-1 text-sm"></i>
+                    <span class="text-[11px] text-gray-300">دعم مستمر</span>
+                </div>
+            </div>
 
-                   <!-- Main Name Logo -->
-                   <h1 class="text-4xl font-black font-kufi gold-text tracking-wide drop-shadow-md py-1">
-           document.getElementById('modalServicePrice').innerText = selectedPrice;
-           document.getElementById('orderNotes').value = '';
-          
-           const modal = document.getElementById('orderModal');
-           modal.classList.remove('hidden');
-       }
+            <!-- WhatsApp Direct Button & Copy Link -->
+            <div class="space-y-2 pt-2">
+                <div class="text-center text-xs text-amber-300/80 mb-1">--- رقم التواصل ---</div>
+                <a href="https://wa.me/963954561671" target="_blank" 
+                   class="w-full py-3 bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.3)] transition">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>+963 954 561 671</span>
+                </a>
+                <button onclick="copyToClipboard('https://almoghani.net', 'تم نسخ رابط الموقع بنجاح!')" 
+                        class="w-full py-2.5 bg-black/50 hover:bg-black text-amber-300 border border-amber-500/30 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>نسخ رابط الموقع (almoghani.net)</span>
+                </button>
+            </div>
+        </div>
 
+        <!-- Footer -->
+        <footer class="text-center text-[10px] text-gray-500 pt-4">
+            جميع الحقوق محفوظة © almoghani.net 2026
+        </footer>
+    </div>
 
-       // Close Order Modal
-       function closeOrderModal() {
-           document.getElementById('orderModal').classList.add('hidden');
-       }
+    <!-- Quran Modal -->
+    <div id="quranModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex flex-col justify-end md:justify-center items-center p-0 md:p-4">
+        <div class="w-full max-w-[480px] bg-[#121216] border border-amber-500/40 rounded-t-3xl md:rounded-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-amber-500/20 flex justify-between items-center bg-black/40">
+                <div class="flex items-center gap-2 text-amber-400 font-bold">
+                    <i class="fa-solid fa-book-quran"></i>
+                    <span>القرآن الكريم (صوت وكتابة)</span>
+                </div>
+                <button onclick="closeQuranModal()" class="w-8 h-8 rounded-full bg-white/10 text-gray-300 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-4 overflow-y-auto space-y-4 flex-1 text-right">
+                <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-center">
+                    <h3 class="text-amber-300 font-bold text-lg">سورة الفاتحة</h3>
+                    <p class="text-xs text-gray-300 mt-1">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾</p>
+                </div>
+                <div class="p-3 bg-black/50 rounded-xl border border-gray-800 text-center space-y-2">
+                    <span class="text-xs text-amber-400 block">استمع للتلاوة العطرة</span>
+                    <audio controls class="w-full h-10 accent-amber-500">
+                        <source src="https://server8.mp3quran.net/afs/001.mp3" type="audio/mpeg">
+                        متصفحك لا يدعم المشغل الصوتي
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Order Modal -->
+    <div id="orderModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex justify-center items-center p-4">
+        <div class="w-full max-w-[360px] bg-[#121216] border border-amber-500/40 rounded-2xl p-5 shadow-2xl">
+            <div class="flex justify-between items-center mb-4 border-b border-amber-500/20 pb-3">
+                <h3 class="text-amber-400 font-bold text-base">طلب خدمة: <span id="modalServiceName"></span></h3>
+                <button onclick="closeOrderModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="space-y-3 text-right">
+                <p class="text-xs text-gray-300">السعر: <span id="modalServicePrice" class="text-amber-400 font-bold"></span></p>
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1">ملاحظات إضافية للطلب:</label>
+                    <textarea id="orderNotes" rows="3" class="w-full bg-black border border-amber-500/30 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400" placeholder="اكتب تفاصيل طلبك هنا..."></textarea>
+                </div>
+                <button onclick="sendWhatsAppOrder()" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>إرسال الطلب عبر الواتساب</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
-       // Send Whatsapp formatted message
-       function sendWhatsAppOrder() {
-           const notes = document.getElementById('orderNotes').value.trim();
-           const phone = "963954561671";
-          
-           let text = `مرحباً المصمم سراب 👋\n\nأود طلب خدمة: *${selectedService}*\nالسعر: *${selectedPrice}*`;
-           if (notes) {
-               text += `\n\n📝 ملاحظات الطلب:\n${notes}`;
-           }
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-amber-500 text-black px-4 py-2 rounded-xl text-xs font-bold shadow-xl opacity-0 pointer-events-none transition duration-300 z-50">
+        <span id="toastMessage">تم بنجاح</span>
+    </div>
 
+    <script>
+        let selectedService = '';
+        let selectedPrice = '';
 
-           const encodedText = encodeURIComponent(text);
-           window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
-           closeOrderModal();
-       }
+        function openOrderModal(service, price) {
+            selectedService = service;
+            selectedPrice = price;
+            document.getElementById('modalServiceName').innerText = service;
+            document.getElementById('modalServicePrice').innerText = price;
+            document.getElementById('orderNotes').value = '';
+            document.getElementById('orderModal').classList.remove('hidden');
+        }
 
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.add('hidden');
+        }
 
-       // Copy Text & Show Toast Function
-       function copyToClipboard(text, message) {
-           if (navigator.clipboard && window.isSecureContext) {
-               navigator.clipboard.writeText(text).then(() => {
-                   showToast(message);
-               }).catch(() => {
-                   fallbackCopy(text, message);
-               });
-           } else {
-               fallbackCopy(text, message);
-           }
-       }
+        function openQuranModal() {
+            document.getElementById('quranModal').classList.remove('hidden');
+        }
 
+        function closeQuranModal() {
+            document.getElementById('quranModal').classList.add('hidden');
+        }
 
-       function fallbackCopy(text, message) {
-           const textArea = document.createElement("textarea");
-           textArea.value = text;
-           textArea.style.position = "fixed";
-           textArea.style.left = "-999999px";
-           document.body.appendChild(textArea);
-           textArea.focus();
-           textArea.select();
-           try {
-               document.execCommand('copy');
-               showToast(message);
-           } catch (err) {
-               showToast("تعذر النسخ!");
-           }
-           document.body.removeChild(textArea);
-       }
+        function sendWhatsAppOrder() {
+            const notes = document.getElementById('orderNotes').value.trim();
+            const phone = "963954561671";
+            let text = `مرحباً المصمم سراب 👋\n\nأود طلب خدمة: *${selectedService}*\nالسعر: *${selectedPrice}*`;
+            if (notes) text += `\n\n📝 ملاحظات:\n${notes}`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+            closeOrderModal();
+        }
 
+        function copyToClipboard(text, msg) {
+            navigator.clipboard.writeText(text).then(() => showToast(msg)).catch(() => showToast("تعذر النسخ"));
+        }
 
-       // Show Toast popup message
-       function showToast(msg) {
-           const toast = document.getElementById('toast');
-           const toastMsg = document.getElementById('toastMessage');
-          
-           toastMsg.innerText = msg;
-           toast.classList.remove('opacity-0', 'pointer-events-none');
-           toast.classList.add('opacity-100');
-          
-           setTimeout(() => {
-               toast.classList.add('opacity-0', 'pointer-events-none');
-               toast.classList.remove('opacity-100');
-           }, 2500);
-       }
-   </script>
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+                toast.classList.remove('opacity-100');
+            }, 2500);
+        }
+    </script>
 </body>
 </html>
 
