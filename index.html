@@ -3,491 +3,748 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>almoghani.net  - ahmed Designer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>صحيفة المغني - ALMOGHANI</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;800;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <style>
+        :root {
+            --gold-primary: #f39c12;
+            --gold-light: #f1c40f;
+            --gold-dark: #b78103;
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --bg-black: #0a0a0c;
+            --card-black: rgba(18, 18, 22, 0.85);
+            --border-gold: rgba(212, 175, 55, 0.4);
+        }
+
         * {
-            font-family: 'Tajawal', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
-        .font-kufi {
-            font-family: 'Reem Kufi', sans-serif;
-        }
-
-        /* Gold Gradient Text & Elements */
-        .gold-text {
-            background: linear-gradient(135deg, #FFF099 0%, #F1C40F 30%, #D4AC0D 60%, #856404 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-text-bright {
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFE57F 50%, #D4AC0D 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-border {
-            border: 1px solid rgba(212, 172, 13, 0.4);
-            box-shadow: 0 0 15px rgba(212, 172, 13, 0.15), inset 0 0 15px rgba(212, 172, 13, 0.05);
-        }
-
-        .gold-border-glow {
-            border: 1px solid rgba(241, 196, 15, 0.7);
-            box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
-        }
-
-        .gold-bg-gradient {
-            background: linear-gradient(135deg, #d4ac0d 0%, #f1c40f 50%, #b7950b 100%);
-        }
-
-        /* Dark Card Styling */
-        .glass-card {
-            background: rgba(18, 18, 20, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 172, 13, 0.25);
-        }
-
-        .glass-card:hover, .glass-card:active {
-            border-color: rgba(241, 196, 15, 0.6);
-            transform: translateY(-2px);
-            transition: all 0.3s ease;
-        }
-
-        /* Background Elements */
         body {
-            background-color: #0a0a0c;
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(212, 172, 13, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 50% 100%, rgba(212, 172, 13, 0.1) 0%, transparent 50%);
-            color: #f3f4f6;
+            background-color: var(--bg-black);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(191, 149, 63, 0.15), transparent 70%),
+                radial-gradient(circle at 50% 100%, rgba(191, 149, 63, 0.1), transparent 70%);
+            padding: 10px;
         }
 
-        /* Luxury Ornament Frame Lines */
-        .ornament-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212, 172, 13, 0.6), transparent);
+        .mobile-container {
+            width: 100%;
+            max-width: 430px;
+            background: rgba(12, 12, 15, 0.95);
+            border: 2px solid;
+            border-image: var(--gold-gradient) 1;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), 0 0 15px rgba(191, 149, 63, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 15px;
         }
 
-        /* Shimmer Animation */
-        @keyframes shine {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+        /* Decorative Corners */
+        .corner {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #bf953f;
+            z-index: 10;
+        }
+        .top-left { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+        .top-right { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
         }
 
-        .shimmer {
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,229,127,0.2) 50%, rgba(255,255,255,0) 100%);
-            background-size: 200% 100%;
-            animation: shine 3s infinite;
+        /* Circular Text Badge */
+        .logo-circle-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Toast Popup */
-        #toast {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        .circular-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateText 20s linear infinite;
+        }
+
+        @keyframes rotateText {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .circular-text svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .circular-text text {
+            fill: #f1c40f;
+            font-size: 10.5px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-family: 'Cairo', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .crown-icon {
+            font-size: 2.2rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .logo-center {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #000;
+            border: 2px solid #bf953f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 10px rgba(191, 149, 63, 0.5);
+        }
+
+        .main-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            margin-top: 5px;
+            text-shadow: 0 0 10px rgba(191, 149, 63, 0.2);
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #d4af37;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .subtitle::before, .subtitle::after {
+            content: "✦";
+            font-size: 0.6rem;
+            color: #bf953f;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .service-card {
+            background: var(--card-black);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 12px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        .service-card:hover, .service-card:active {
+            border-color: #f1c40f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(191, 149, 63, 0.25);
+            background: rgba(28, 28, 35, 0.95);
+        }
+
+        .service-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(191, 149, 63, 0.15);
+            border: 1px solid rgba(191, 149, 63, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f1c40f;
+            font-size: 0.9rem;
+        }
+
+        .service-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #eaeaea;
+        }
+
+        .service-desc-sub {
+            font-size: 0.65rem;
+            color: #aaa;
+            display: block;
+        }
+
+        .badge-tag {
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        /* Feature Pillars Banner */
+        .pillars-banner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(20, 20, 25, 0.6);
+            border: 1px dashed rgba(191, 149, 63, 0.3);
+            border-radius: 10px;
+            padding: 10px 5px;
+            margin-bottom: 20px;
+        }
+
+        .pillar-item {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #ccc;
+        }
+
+        .pillar-item i {
+            display: block;
+            font-size: 1.1rem;
+            color: #f1c40f;
+            margin-bottom: 4px;
+        }
+
+        /* Contact & Social Section */
+        .contact-box {
+            background: rgba(15, 15, 18, 0.9);
+            border: 1px solid var(--border-gold);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 0.8rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(191, 149, 63, 0.4);
+            color: #f1c40f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+
+        .whatsapp-main-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .site-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-size: 0.8rem;
+            direction: ltr;
+        }
+
+        /* Modal Screens Style */
+        .modal-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 5, 8, 0.98);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            padding: 20px 15px;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            color: #f1c40f;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-gold);
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            color: #fff;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item-card {
+            background: rgba(20, 20, 25, 0.8);
+            border: 1px solid rgba(191, 149, 63, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .item-card:hover {
+            border-color: #f1c40f;
+            background: rgba(30, 30, 38, 0.9);
+        }
+
+        /* Player Modal */
+        .quran-player {
+            background: rgba(18, 18, 22, 0.95);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .quran-text-container {
+            background: rgba(10, 10, 12, 0.8);
+            border: 1px solid rgba(191, 149, 63, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 50vh;
+            overflow-y: auto;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            line-height: 2.2;
+            color: #fcf6ba;
+            text-align: justify;
         }
     </style>
 </head>
-<body class="flex justify-center items-center py-0 md:py-6 px-0 md:px-4 antialiased selection:bg-amber-500 selection:text-black">
+<body>
 
-    <div class="w-full max-w-[430px] min-h-screen md:min-h-[880px] bg-[#0d0d10] text-gray-100 flex flex-col justify-between relative shadow-2xl md:rounded-[36px] border-0 md:border md:border-amber-500/30 overflow-hidden pb-10">
+    <div class="mobile-container">
+        <!-- Corners Decorative -->
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
 
-        <!-- Top Luxury Border Frame Decor -->
-        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-700 via-amber-300 to-amber-700 z-20"></div>
-        
-        <div class="p-5 space-y-6 relative z-10">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-circle-container">
+                <div class="circular-text">
+                    <svg viewBox="0 0 100 100">
+                        <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+                        <text>
+                            <textPath href="#circlePath" startOffset="0%">
+                                ALMOGHANI • ALMOGHANI • 
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <div class="logo-center">
+                    <i class="fa-solid fa-crown crown-icon"></i>
+                </div>
+            </div>
 
-            <header class="text-center pt-4 relative">
-                <!-- Crown Overlay -->
-                <div class="flex justify-center -mb-4 relative z-20">
-                    <div class="w-12 h-12 text-amber-400 drop-shadow-[0_0_10px_rgba(241,196,15,0.6)] flex items-center justify-center animate-pulse">
-                        <i class="fa-solid me-0 fa-crown text-3xl"></i>
+            <h1 class="main-title">المُغْنِي</h1>
+            <div class="subtitle">الموقع والمنصة الاحترافية الشاملة</div>
+        </div>
+
+        <!-- Main Grid Options -->
+        <div class="services-grid">
+            
+            <!-- القرآن الكريم -->
+            <div class="service-card" onclick="openModal('quranModal')">
+                <div class="service-info">
+                    <div class="service-icon"><i class="fa-solid fa-quran"></i></div>
+                    <div>
+                        <span class="service-title">القرآن الكريم</span>
+                        <span class="service-desc-sub">قراءة وتلاوات</span>
                     </div>
                 </div>
+                <span class="badge-tag">١١٤ سورة</span>
+            </div>
 
-                <!-- Avatar Circle with Luxury Frame -->
-                <div class="relative w-36 h-36 mx-auto mb-4">
-                    <div class="absolute inset-0 rounded-full border-2 border-amber-400/50 animate-spin" style="animation-duration: 15s;"></div>
-                    <div class="absolute -inset-1 rounded-full border border-dashed border-amber-300/30"></div>
-                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-amber-400 p-1 bg-black/60 shadow-[0_0_25px_rgba(212,172,13,0.3)]">
-                        <!-- Custom Placeholder avatar matching image style -->
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
-                             alt="almoghani " 
-                             class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition duration-500"
-                             onerror="this.src='https://placehold.co/150x150/111/d4ac0d?text=SARAB'">
+            <!-- الأحاديث الشريفة -->
+            <div class="service-card" onclick="openModal('hadithModal')">
+                <div class="service-info">
+                    <div class="service-icon"><i class="fa-solid fa-book-quran"></i></div>
+                    <div>
+                        <span class="service-title">الأحاديث الشريفة</span>
+                        <span class="service-desc-sub">السنة النبوية</span>
                     </div>
                 </div>
+                <span class="badge-tag">موسوعة</span>
+            </div>
 
-                <!-- Brand Title -->
-                <div class="inline-block relative px-6 py-1">
-                    <div class="flex items-center justify-center gap-2 mb-1">
-                        <span class="h-[1px] w-8 bg-gradient-to-r from-transparent to-amber-400"></span>
-                        <span class="text-xs uppercase tracking-widest text-amber-300/80 font-medium">المصمم</span>
-                        <span class="h-[1px] w-8 bg-gradient-to-l from-transparent to-amber-400"></span>
+            <!-- برامج البلس -->
+            <div class="service-card" onclick="openModal('plusModal')">
+                <div class="service-info">
+                    <div class="service-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div>
+                        <span class="service-title">برامج البلس</span>
+                        <span class="service-desc-sub">حركات الواتساب</span>
                     </div>
-
-                    <!-- Main Name Logo -->
-                    <h1 class="text-4xl font-black font-kufi gold-text tracking-wide drop-shadow-md py-1">
-                        سـرَاب
-                    </h1>
-                    
-                    <p class="text-sm tracking-[0.3em] font-bold text-amber-200/90 uppercase mt-[-4px]">S A R A B</p>
                 </div>
+                <span class="badge-tag">معدلة</span>
+            </div>
 
-                <!-- Decorative divider -->
-                <div class="flex items-center justify-center gap-2 my-3 opacity-80">
-                    <div class="ornament-line w-20"></div>
-                    <i class="fa-solid fa-gem text-amber-400 text-xs"></i>
-                    <div class="ornament-line w-20"></div>
+            <!-- غزوات الأنبياء والحصابة -->
+            <div class="service-card" onclick="openModal('battlesModal')">
+                <div class="service-info">
+                    <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <span class="service-title">غزوات المعارك</span>
+                        <span class="service-desc-sub">الأنبياء والصحابة</span>
+                    </div>
                 </div>
-
-                <!-- Subtitle Tagline -->
-                <p class="text-xs sm:text-sm text-amber-100/90 font-medium bg-amber-950/30 py-1.5 px-4 rounded-full border border-amber-500/20 inline-block shadow-inner">
-                    ✨ المصمم الإحترافي لجميع التصاميم
-                </p>
-            </header>
-
-            <section class="space-y-3">
-                <div class="flex items-center justify-between px-1">
-                    <h2 class="text-sm font-bold text-amber-400 flex items-center gap-2">
-                        <i class="fa-solid fa-layer-group"></i> قائمة الخدمات والأسعار
-                    </h2>
-                    <span class="text-[10px] text-gray-400 bg-gray-900 px-2 py-0.5 rounded border border-gray-800">اضغط للطلب المباشر</span>
-                </div>
-
-                <!-- Grid 2 Columns -->
-                <div class="grid grid-cols-2 gap-2.5">
-                    
-                    <!-- Service 1 -->
-                    <div onclick="openOrderModal('صورة ثابتة', '3')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group hover:scale-[1.02] active:scale-95 transition">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition">
-                                <i class="fa-regular fa-image"></i>
-                            </div>
-                            <span class="text-xs font-bold text-gray-200">صورة ثابتة</span>
-                        </div>
-                        <span class="text-base font-black gold-text font-mono">$3</span>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div onclick="openOrderModal('فعاليات', '13')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group hover:scale-[1.02] active:scale-95 transition">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition">
-                                <i class="fa-regular fa-calendar-check"></i>
-                            </div>
-                            <span class="text-xs font-bold text-gray-200">فعاليات</span>
-                        </div>
-                        <span class="text-base font-black gold-text font-mono">$13</span>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div onclick="openOrderModal('صورة ترند', '4')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group hover:scale-[1.02] active:scale-95 transition">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition">
-                                <i class="fa-solid fa-fire text-amber-500"></i>
-                            </div>
-                            <span class="text-xs font-bold text-gray-200">صورة ترند</span>
-                        </div>
-                        <span class="text-base font-black gold-text font-mono">$4</span>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div onclick="openOrderModal('جداول', '15')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group hover:scale-[1.02] active:scale-95 transition">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition">
-                                <i class="fa-solid fa-table-cells"></i>
-                            </div>
-                            <span class="text-xs font-bold text-gray-200">جداول</span>
-                        </div>
-                        <span class="text-base font-black gold-text font-mono">$15</span>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div onclick="openOrderModal('خلفيات روم', '5')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group hover:scale-[1.02] active:scale-95 transition">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition">
-                                <i class="fa-solid fa-desktop"></i>
-                            </div>
-                            <span class="text-xs font-bold text-gray-200">خلفيات روم</span>
-                        </div>
-                        <span class="text-base font-black gold-text font-mono">$5</span>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div onclick="openOrderModal('خلفيات', '7')" class="glass-card p-3 rounded-xl flex items-center justify-between cursor-pointer group hover:scale-[1.02] active:scale-95 transition">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition">
-                                <i class="fa-solid fa-images"></i>
-                            </div>
-                            <span class="text-xs font-bold text-gray-200">خلفيات</span>
-                        </div>
-                        <span class="text-base font-black gold-text font-mono">$7</span>
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="glass-card p-3 rounded-2xl border border-amber-500/20 bg-gradient-to-r from-amber-950/20 via-black to-amber-950/20">
-                <div class="grid grid-cols-3 divide-x divide-x-reverse divide-amber-500/20 text-center">
-                    
-                    <div class="px-1 space-y-1">
-                        <div class="w-7 h-7 mx-auto rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 text-xs">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-                        <p class="text-[11px] font-bold text-gray-200">سرعة في التسليم</p>
-                    </div>
-
-                    <div class="px-1 space-y-1">
-                        <div class="w-7 h-7 mx-auto rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 text-xs">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <p class="text-[11px] font-bold text-gray-200">جودة عالية</p>
-                    </div>
-
-                    <div class="px-1 space-y-1">
-                        <div class="w-7 h-7 mx-auto rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 text-xs">
-                            <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <p class="text-[11px] font-bold text-gray-200">دعم مستمر</p>
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="space-y-2">
-                <div class="glass-card p-3.5 rounded-2xl border border-emerald-500/30 bg-emerald-950/10">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
-                            <div>
-                                <p class="text-xs text-gray-400">رقم التواصل المباشر</p>
-                                <p class="text-sm font-bold font-mono tracking-wider text-emerald-300" dir="ltr">+963 954 561 671</p>
-                            </div>
-                        </div>
-                        <button onclick="copyToClipboard('+963954561671', 'تم نسخ رقم الهاتف!')" class="text-xs bg-emerald-900/40 hover:bg-emerald-800/60 text-emerald-200 px-2.5 py-1.5 rounded-lg border border-emerald-500/30 transition">
-                            <i class="fa-regular fa-copy ml-1"></i>نسخ
-                        </button>
-                    </div>
-
-                    <a href="https://wa.me/963954561671?text=مرحباً%20المصمم%20سراب،%20أود%20الاستفسار%20عن%20خدمات%20التصميم" target="_blank" 
-                       class="w-full py-2.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 active:scale-98 transition text-xs">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        تواصل الآن عبر الواتساب
-                    </a>
-                </div>
-            </section>
-
-            <section class="space-y-2.5">
-                <h3 class="text-xs font-bold text-amber-400/90 flex items-center gap-2 px-1">
-                    <i class="fa-solid fa-share-nodes"></i> حساباتي على مواقع التواصل
-                </h3>
-
-                <div class="grid grid-cols-2 gap-2">
-                    <!-- Instagram -->
-                    <a href="https://instagram.com" target="_blank" class="glass-card p-2.5 rounded-xl flex items-center gap-2.5 hover:border-pink-500/50 transition group">
-                        <div class="w-7 h-7 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center text-sm group-hover:bg-pink-500 group-hover:text-white transition">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <div>
-                            <p class="text-[11px] font-bold text-gray-200">انستغرام</p>
-                            <p class="text-[9px] text-gray-400">@sarab_design</p>
-                        </div>
-                    </a>
-
-                    <!-- TikTok -->
-                    <a href="https://tiktok.com" target="_blank" class="glass-card p-2.5 rounded-xl flex items-center gap-2.5 hover:border-cyan-500/50 transition group">
-                        <div class="w-7 h-7 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-sm group-hover:bg-cyan-400 group-hover:text-black transition">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </div>
-                        <div>
-                            <p class="text-[11px] font-bold text-gray-200">تيك توك</p>
-                            <p class="text-[9px] text-gray-400">@sarab.design</p>
-                        </div>
-                    </a>
-
-                    <!-- Telegram -->
-                    <a href="https://telegram.org" target="_blank" class="glass-card p-2.5 rounded-xl flex items-center gap-2.5 hover:border-sky-500/50 transition group">
-                        <div class="w-7 h-7 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center text-sm group-hover:bg-sky-500 group-hover:text-white transition">
-                            <i class="fa-brands fa-telegram"></i>
-                        </div>
-                        <div>
-                            <p class="text-[11px] font-bold text-gray-200">تلغرام</p>
-                            <p class="text-[9px] text-gray-400">@sarab_channel</p>
-                        </div>
-                    </a>
-
-                    <!-- Behance / Portfolio -->
-                    <a href="https://behance.net" target="_blank" class="glass-card p-2.5 rounded-xl flex items-center gap-2.5 hover:border-blue-500/50 transition group">
-                        <div class="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-sm group-hover:bg-blue-600 group-hover:text-white transition">
-                            <i class="fa-brands fa-behance"></i>
-                        </div>
-                        <div>
-                            <p class="text-[11px] font-bold text-gray-200">معرض الأعمال</p>
-                            <p class="text-[9px] text-gray-400">Behance Portfolio</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <section class="glass-card p-3 rounded-2xl space-y-2">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-globe text-amber-400 text-sm"></i>
-                        <span class="text-xs font-bold text-gray-200">عنوان موقعي الإلكتروني</span>
-                    </div>
-                    <button onclick="copyToClipboard(window.location.href, 'تم نسخ رابط الموقع!')" class="text-[10px] bg-amber-500/10 text-amber-300 hover:bg-amber-500 hover:text-black px-2 py-1 rounded transition">
-                        <i class="fa-regular fa-copy ml-1"></i>نسخ الرابط
-                    </button>
-                </div>
-                <p class="text-[11px] font-mono text-gray-400 bg-black/50 p-2 rounded-lg truncate text-left dir-ltr border border-amber-500/10">
-                    https://sarab-design.com
-                </p>
-            </section>
+                <span class="badge-tag">جداول</span>
+            </div>
 
         </div>
 
-        <footer class="mt-auto px-5 pt-2 text-center border-t border-amber-500/10">
-            <p class="text-[10px] text-gray-500">جميع الحقوق محفوظة © <span class="gold-text font-bold">المصمم سراب</span> 2026</p>
-        </footer>
+        <!-- Pillar Points -->
+        <div class="pillars-banner">
+            <div class="pillar-item">
+                <i class="fa-solid fa-headset"></i>
+                دعم مستمر
+            </div>
+            <div class="pillar-item">
+                <i class="fa-solid fa-circle-check"></i>
+                جودة عالية
+            </div>
+            <div class="pillar-item">
+                <i class="fa-solid fa-bolt"></i>
+                سرعة وتحديث
+            </div>
+        </div>
 
-    </div>
-
-    <div id="orderModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-card w-full max-w-sm rounded-2xl p-5 border-amber-500/40 relative animate-in fade-in zoom-in duration-200">
-            <!-- Close Button -->
-            <button onclick="closeOrderModal()" class="absolute top-3 left-3 text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-black/40">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <!-- Modal Header -->
-            <div class="text-center space-y-1 mb-4">
-                <div class="w-10 h-10 mx-auto rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-2 border border-amber-500/30">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <h3 class="text-base font-bold text-amber-300">طلب خدمة تصميم</h3>
-                <p class="text-xs text-gray-400">سيتم توجيهك مباشرة للواتساب لإكمال الطلب</p>
+        <!-- Contact Box -->
+        <div class="contact-box">
+            <div class="contact-title">تواصل معنا وحساباتنا</div>
+            
+            <div class="social-links">
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
             </div>
 
-            <!-- Modal Details -->
-            <div class="bg-black/60 p-3 rounded-xl border border-amber-500/20 space-y-2 mb-4">
-                <div class="flex justify-between items-center text-xs">
-                    <span class="text-gray-400">الخدمة المختارة:</span>
-                    <span id="modalServiceName" class="font-bold text-amber-300"></span>
-                </div>
-                <div class="flex justify-between items-center text-xs">
-                    <span class="text-gray-400">السعر المقدر:</span>
-                    <span id="modalServicePrice" class="font-black font-mono text-emerald-400"></span>
-                </div>
-            </div>
+            <a href="https://wa.me/963954561671" class="whatsapp-main-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                تواصل عبر الواتساب المباشر
+            </a>
 
-            <!-- Notes Input -->
-            <div class="space-y-1 mb-4">
-                <label class="text-[11px] text-gray-300 block">ملاحظات أو تفاصيل إضافية (اختياري):</label>
-                <textarea id="orderNotes" rows="3" placeholder="أكتب التفاصيل أو العنوان المطلوب على التصميم..." class="w-full bg-black/80 border border-amber-500/30 rounded-xl p-2.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-amber-400 resize-none"></textarea>
-            </div>
-
-            <!-- Send Action Button -->
-            <button onclick="sendWhatsAppOrder()" class="w-full py-3 gold-bg-gradient text-black font-black text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 transition">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                إرسال الطلب إلى الواتساب
-            </button>
+            <a href="https://almoghani.net" class="site-link-btn" target="_blank">
+                <i class="fa-solid fa-globe"></i> almoghani.net
+            </a>
         </div>
     </div>
 
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-amber-400 text-black px-4 py-2 rounded-full font-bold text-xs shadow-2xl opacity-0 pointer-events-none z-50 flex items-center gap-2 border border-amber-200">
-        <i class="fa-solid fa-circle-check"></i>
-        <span id="toastMessage">تم العملية بنجاح</span>
+    <!-- Modal Quran -->
+    <div id="quranModal" class="modal-screen">
+        <div class="modal-header">
+            <div class="modal-title"><i class="fa-solid fa-quran"></i> القرآن الكريم</div>
+            <button class="close-btn" onclick="closeModal('quranModal')">&times;</button>
+        </div>
+        <input type="text" class="search-box" placeholder="ابحث عن اسم السورة..." onkeyup="filterList(this, 'quranList')">
+        <div id="quranList" class="list-items"></div>
+    </div>
+
+    <!-- Modal Quran Reader/Player -->
+    <div id="quranViewModal" class="modal-screen">
+        <div class="modal-header">
+            <div class="modal-title" id="suraTitle">اسم السورة</div>
+            <button class="close-btn" onclick="closeModal('quranViewModal')">&times;</button>
+        </div>
+        <div class="quran-player">
+            <select id="reciterSelect" class="search-box" style="margin-bottom: 10px;" onchange="changeReciter()">
+                <option value="ar.alafasy">مشاري العفاسي</option>
+                <option value="ar.dosari">ياسر الدوسري</option>
+                <option value="ar.mahermuaiqly">ماهر المعيقلي</option>
+            </select>
+            <audio id="audioPlayer" controls style="width: 100%; border-radius: 8px;"></audio>
+        </div>
+        <div id="quranTextContainer" class="quran-text-container">جاري تحميل الآيات...</div>
+    </div>
+
+    <!-- Modal Hadith -->
+    <div id="hadithModal" class="modal-screen">
+        <div class="modal-header">
+            <div class="modal-title"><i class="fa-solid fa-book-quran"></i> الأحاديث الشريفة</div>
+            <button class="close-btn" onclick="closeModal('hadithModal')">&times;</button>
+        </div>
+        <input type="text" class="search-box" placeholder="ابحث في الأحاديث الشريفة..." onkeyup="filterList(this, 'hadithList')">
+        <div id="hadithList" class="list-items"></div>
+    </div>
+
+    <!-- Modal Plus Applications -->
+    <div id="plusModal" class="modal-screen">
+        <div class="modal-header">
+            <div class="modal-title"><i class="fa-brands fa-whatsapp"></i> مميزات وحركات برامج البلس</div>
+            <button class="close-btn" onclick="closeModal('plusModal')">&times;</button>
+        </div>
+        <div class="list-items">
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">إخفاء متصل الآن والظهور</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">تصفح الواتساب كاملاً دون علم أحد بقراءة الرسائل أو ظهورك.</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">منع حذف الرسائل (Anti-Delete)</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">قراءة كافة الرسائل والمحادثات التي يقوم الطرف الآخر بحذفها.</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">تنزيل الحالات والستوري بضغطة زر</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">تحفيط الصور والفيديوهات مباشرة من الاستوري لجوالك.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Battles -->
+    <div id="battlesModal" class="modal-screen">
+        <div class="modal-header">
+            <div class="modal-title"><i class="fa-solid fa-shield-halved"></i> غزوات الأنبياء والصحابة</div>
+            <button class="close-btn" onclick="closeModal('battlesModal')">&times;</button>
+        </div>
+        <div class="list-items">
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">غزوة بدر الكبرى</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">السنة: 2 هـ | القائد: النبي محمد ﷺ | النتيجة: نصر مؤزر للمسلمين</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">غزوة أحد</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">السنة: 3 هـ | القائد: النبي محمد ﷺ | الدروس: أهمية طاعة الأوامر</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">معركة اليرموك</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">السنة: 15 هـ | القائد: خالد بن الوليد رضي الله عنه</p>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <h4 style="color:#f1c40f;">معركة القادسية</h4>
+                    <p style="font-size:0.75rem; color:#ccc;">السنة: 15 هـ | القائد: سعد بن أبي وقاص رضي الله عنه</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        let selectedService = '';
-        let selectedPrice = '';
-
-        // Open Order Modal with selected service
-        function openOrderModal(serviceName, price) {
-            selectedService = serviceName;
-            selectedPrice = '$' + price;
-            
-            document.getElementById('modalServiceName').innerText = serviceName;
-            document.getElementById('modalServicePrice').innerText = selectedPrice;
-            document.getElementById('orderNotes').value = '';
-            
-            const modal = document.getElementById('orderModal');
-            modal.classList.remove('hidden');
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
         }
 
-        // Close Order Modal
-        function closeOrderModal() {
-            document.getElementById('orderModal').classList.add('hidden');
-        }
-
-        // Send Whatsapp formatted message
-        function sendWhatsAppOrder() {
-            const notes = document.getElementById('orderNotes').value.trim();
-            const phone = "963954561671";
-            
-            let text = `مرحباً المصمم سراب 👋\n\nأود طلب خدمة: *${selectedService}*\nالسعر: *${selectedPrice}*`;
-            if (notes) {
-                text += `\n\n📝 ملاحظات الطلب:\n${notes}`;
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            if(id === 'quranViewModal') {
+                document.getElementById('audioPlayer').pause();
             }
-
-            const encodedText = encodeURIComponent(text);
-            window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
-            closeOrderModal();
         }
 
-        // Copy Text & Show Toast Function
-        function copyToClipboard(text, message) {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(message);
-                }).catch(() => {
-                    fallbackCopy(text, message);
+        function filterList(input, listId) {
+            let filter = input.value.toLowerCase();
+            let items = document.getElementById(listId).getElementsByClassName('item-card');
+            for (let item of items) {
+                let text = item.textContent || item.innerText;
+                item.style.display = text.toLowerCase().includes(filter) ? "" : "none";
+            }
+        }
+
+        // Render Quran Surahs
+        let currentSurahNum = 1;
+        const quranList = document.getElementById('quranList');
+        fetch('https://api.alquran.cloud/v1/surah')
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(s => {
+                    let div = document.createElement('div');
+                    div.className = 'item-card';
+                    div.innerHTML = `
+                        <div>
+                            <strong style="color:#f1c40f;">${s.number}. سورة ${s.name}</strong>
+                            <span style="font-size:0.75rem; color:#aaa; display:block;">آياتها: ${s.numberOfAyahs} | ${s.revelationType === 'Meccan' ? 'مكية' : 'مدنية'}</span>
+                        </div>
+                        <i class="fa-solid fa-play" style="color:#f1c40f;"></i>
+                    `;
+                    div.onclick = () => loadSurahDetails(s.number, s.name);
+                    quranList.appendChild(div);
                 });
-            } else {
-                fallbackCopy(text, message);
-            }
+            });
+
+        function loadSurahDetails(num, name) {
+            currentSurahNum = num;
+            document.getElementById('suraTitle').innerText = 'سورة ' + name;
+            openModal('quranViewModal');
+            changeReciter();
+
+            fetch(`https://api.alquran.cloud/v1/surah/${num}`)
+                .then(res => res.json())
+                .then(data => {
+                    let text = data.data.ayahs.map(a => a.text).join(' ﴿' + '✦' + '﴾ ');
+                    document.getElementById('quranTextContainer').innerText = text;
+                });
         }
 
-        function fallbackCopy(text, message) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.position = "fixed";
-            textArea.style.left = "-999999px";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                showToast(message);
-            } catch (err) {
-                showToast("تعذر النسخ!");
-            }
-            document.body.removeChild(textArea);
+        function changeReciter() {
+            let reciter = document.getElementById('reciterSelect').value;
+            let audio = document.getElementById('audioPlayer');
+            fetch(`https://api.alquran.cloud/v1/surah/${currentSurahNum}/${reciter}`)
+                .then(res => res.json())
+                .then(data => {
+                    if(data.data && data.data.ayahs[0]) {
+                        audio.src = `https://cdn.islamic.network/quran/audio-surah/128/${reciter}/${currentSurahNum}.mp3`;
+                    }
+                });
         }
 
-        // Show Toast popup message
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMessage');
-            
-            toastMsg.innerText = msg;
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            toast.classList.add('opacity-100');
-            
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-                toast.classList.remove('opacity-100');
-            }, 2500);
-        }
+        // Render Hadiths
+        const hadithList = document.getElementById('hadithList');
+        const hadiths = [
+            { title: "إنما الأعمال بالنيات", text: "عن أمير المؤمنين عمر بن الخطاب رضي الله عنه قال: سمعت رسول الله ﷺ يقول: إنما الأعمال بالنيات وإنما لكل امرئ ما نوى..." },
+            { title: "الدين النصيحة", text: "عن أبي رقية تميم بن أوس الداري رضي الله عنه أن النبي ﷺ قال: الدين النصيحة. قلنا: لمن؟ قال: لله ولكتابه ولرسوله ولأئمة المسلمين وعامتهم." },
+            { title: "من حسن إسلام المرء", text: "عن أبي هريرة رضي الله عنه قال: قال رسول الله ﷺ: من حسن إسلام المرء تركه ما لا يعنيه." }
+        ];
+
+        hadiths.forEach(h => {
+            let div = document.createElement('div');
+            div.className = 'item-card';
+            div.innerHTML = `
+                <div>
+                    <h4 style="color:#f1c40f;">${h.title}</h4>
+                    <p style="font-size:0.8rem; color:#ddd; margin-top:4px;">${h.text}</p>
+                </div>
+            `;
+            hadithList.appendChild(div);
+        });
     </script>
 </body>
 </html>
