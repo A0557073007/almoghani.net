@@ -946,13 +946,13 @@
 
             <div class="video-container" id="videoContainer">
                 <!-- بث مباشر افتراضي جاهز للعمل فوراً (قناة القرآن الكريم - بث رسمي) -->
-                <iframe src="https://www.youtube.com/embed/live_stream?channel=UC5ne9tG2vY3w_6z8VbV92pA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/live/eC4LfEVxvKg?si=7afo573OkQGybvs2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div class="player-footer">
                 <div class="player-instruction">اختر قناة من القائمة لبدء المشاهدة. قد يعتمد تشغيل بعض البثوث على إعدادات التضمين لدى مصدر البث.</div>
                 <button class="ctrl-btn" id="setCustomUrlBtn" style="background: rgba(139,92,246,0.15); border-color: var(--accent-purple);">
-                    <i class="fa-solid fa-link"></i> تخصيص رابط البث للقناة الحالية
+                    <i class="fa-solid fa-link"></i> https://www.youtube.com/live/eC4LfEVxvKg?si=7afo573OkQGybvs2
                 </button>
             </div>
         </section>
@@ -1066,7 +1066,7 @@
     </div>
 
     <div class="disclaimer-note">
-        <i class="fa-solid fa-triangle-exclamation"></i> تختلف إمكانية تشغيل البث بحسب توفر الرابط والسماح بعرضه داخل المواقع الأخرى. لا توجد روابط وهمية، ويمكنك إضافة روابط البث المتاح في أي وقت.
+        <i class="fa-solid fa-triangle-exclamation"></i> https://www.youtube.com/live/eC4LfEVxvKg?si=7afo573OkQGybvs2
     </div>
 
     <footer id="contact-us">
@@ -1109,11 +1109,11 @@
     <div class="modal-overlay" id="urlModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 id="modalChannelName">تخصيص رابط البث</h3>
+                <h3 id="modalChannelName">j</h3>
                 <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">أدخل رابط التضمين (Embed URL) أو رابط البث المباشر الخاص بهذه القناة:</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">https://www.youtube.com/live/eC4LfEVxvKg?si=7afo573OkQGybvs2 (Embed URL) https://www.youtube.com/live/eC4LfEVxvKg?si=7afo573OkQGybvs2</p>
                 <input type="url" id="customUrlInput" placeholder="https://www.youtube.com/embed/... أو رابط البث المباشر">
                 <button class="btn btn-primary" id="saveCustomUrlBtn" style="width: 100%; justify-content: center;">حفظ وتطبيق البث</button>
             </div>
@@ -1147,217 +1147,3 @@
             { id: 'misc-2', name: 'قناة الأطفال (سبيستون)', group: 'misc', icon: 'fa-child', desc: 'برامج وترفيه ورسوم متحركة للأجيال.', url: '', recent: false },
             { id: 'misc-3', name: 'قناة الطبخ والشيف', group: 'misc', icon: 'fa-utensils', desc: 'أشهى الأطباق والوصفات العالمية والمحلية.', url: '', recent: false }
         ];
-
-        let favorites = JSON.parse(localStorage.getItem('almoghani_favs')) || [];
-        // تعيين قناة القرآن الكريم كقناة افتراضية نشطة للتأكد من عمل البث فوراً
-        let activeChannel = channelsData.find(c => c.id === 'saudi-3') || channelsData[0];
-        let currentFilter = 'all';
-        let searchQuery = '';
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        const searchInput = document.getElementById('searchInput');
-        const favCountSpan = document.getElementById('favCount');
-        const videoContainer = document.getElementById('videoContainer');
-        const currentChannelTitle = document.getElementById('currentChannelTitle');
-        const reloadBtn = document.getElementById('reloadBtn');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const openOriginalBtn = document.getElementById('openOriginalBtn');
-        const shareBtn = document.getElementById('shareBtn');
-        const setCustomUrlBtn = document.getElementById('setCustomUrlBtn');
-        const urlModal = document.getElementById('urlModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const customUrlInput = document.getElementById('customUrlInput');
-        const saveCustomUrlBtn = document.getElementById('saveCustomUrlBtn');
-        const modalChannelName = document.getElementById('modalChannelName');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-
-        function renderChannels() {
-            ['saudi', 'sports', 'news', 'islamic', 'misc'].forEach(group => {
-                const grid = document.querySelector(`.channels-grid[data-group="${group}"]`);
-                if (!grid) return;
-
-                const filteredChannels = channelsData.filter(ch => {
-                    if (ch.group !== group) return false;
-                    if (searchQuery && !ch.name.includes(searchQuery) && !ch.desc.includes(searchQuery)) {
-                        return false;
-                    }
-                    if (currentFilter === 'favorites' && !favorites.includes(ch.id)) return false;
-                    if (currentFilter === 'recent' && !ch.recent) return false;
-                    return true;
-                });
-
-                if (filteredChannels.length === 0) {
-                    grid.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 1.5rem;">لا توجد قنوات مطابقة للبحث أو الفلتر الحالي.</p>`;
-                    return;
-                }
-
-                grid.innerHTML = filteredChannels.map(ch => {
-                    const isFav = favorites.includes(ch.id);
-                    const isActive = activeChannel && activeChannel.id === ch.id;
-                    const hasUrl = ch.url && ch.url.trim() !== '';
-
-                    return `
-                        <div class="channel-card ${isActive ? 'active-channel' : ''}" onclick="selectChannel('${ch.id}')">
-                            <div>
-                                <div class="channel-card-top">
-                                    <div class="channel-icon"><i class="fa-solid ${ch.icon}"></i></div>
-                                    <button class="favorite-btn ${isFav ? 'favorited' : ''}" onclick="event.stopPropagation(); toggleFavorite('${ch.id}')" title="إضافة للمفضلة">
-                                        <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
-                                    </button>
-                                </div>
-                                <div class="channel-info">
-                                    <h3>${ch.name}</h3>
-                                    <p>${ch.desc}</p>
-                                </div>
-                            </div>
-                            <div class="channel-footer">
-                                <span class="channel-status ${hasUrl ? '' : 'offline'}">
-                                    <i class="fa-solid fa-circle" style="font-size: 8px;"></i> ${hasUrl ? 'متوفر' : 'بانتظار الرابط'}
-                                </span>
-                                <span class="watch-now-tag">مشاهدة <i class="fa-solid fa-play" style="font-size: 10px;"></i></span>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            });
-
-            favCountSpan.textContent = favorites.length;
-        }
-
-        window.selectChannel = function(id) {
-            activeChannel = channelsData.find(c => c.id === id);
-            if (!activeChannel) return;
-
-            currentChannelTitle.textContent = activeChannel.name;
-            renderChannels();
-            loadPlayerContent();
-        }
-
-        function loadPlayerContent() {
-            if (!activeChannel) return;
-
-            if (activeChannel.url && activeChannel.url.trim() !== '') {
-                openOriginalBtn.style.display = 'inline-flex';
-                openOriginalBtn.href = activeChannel.url;
-
-                if (activeChannel.url.includes('youtube.com/embed') || activeChannel.url.includes('iframe') || activeChannel.url.includes('http')) {
-                    videoContainer.innerHTML = `<iframe src="${activeChannel.url}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-                } else {
-                    videoContainer.innerHTML = `<div class="video-placeholder"><i class="fa-solid fa-circle-exclamation"></i><h3>رابط غير متوافق مع التضمين المباشر</h3><p>انقر على زر "الموقع الأصلي" أدناه لمشاهدة البث مباشرة في مصدره.</p></div>`;
-                }
-            } else {
-                openOriginalBtn.style.display = 'none';
-                videoContainer.innerHTML = `
-                    <div class="video-placeholder">
-                        <i class="fa-solid fa-circle-exclamation" style="color: #f59e0b;"></i>
-                        <h3>تعذر تشغيل هذا البث حاليًا</h3>
-                        <p>لا يتوفر رابط بث مباشر لهذه القناة حاليًا. جرّب قناة أخرى أو أضف رابط البث الخاص بك عبر زر التخصيص أدناه.</p>
-                    </div>
-                `;
-            }
-        }
-
-        window.toggleFavorite = function(id) {
-            const index = favorites.indexOf(id);
-            if (index > -1) {
-                favorites.splice(index, 1);
-            } else {
-                favorites.push(id);
-            }
-            localStorage.setItem('almoghani_favs', JSON.stringify(favorites));
-            renderChannels();
-        }
-
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.trim();
-            renderChannels();
-        });
-
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                currentFilter = tab.getAttribute('data-filter');
-                renderChannels();
-            });
-        });
-
-        reloadBtn.addEventListener('click', () => {
-            if (!activeChannel) {
-                alert('الرجاء اختيار قناة أولاً.');
-                return;
-            }
-            loadPlayerContent();
-        });
-
-        fullscreenBtn.addEventListener('click', () => {
-            if (!activeChannel) {
-                alert('الرجاء اختيار قناة أولاً.');
-                return;
-            }
-            if (videoContainer.requestFullscreen) {
-                videoContainer.requestFullscreen();
-            } else if (videoContainer.webkitRequestFullscreen) {
-                videoContainer.webkitRequestFullscreen();
-            }
-        });
-
-        shareBtn.addEventListener('click', () => {
-            if (!activeChannel) {
-                alert('الرجاء اختيار قناة أولاً للمشاركة.');
-                return;
-            }
-            if (navigator.share) {
-                navigator.share({
-                    title: 'ALMOGHANI LIVE — ' + activeChannel.name,
-                    text: 'شاهد بث ' + activeChannel.name + ' مباشرة عبر بوابة المغني للبث المباشر',
-                    url: window.location.href,
-                }).catch(() => {});
-            } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert('تم نسخ رابط الموقع إلى الحافظة!');
-            }
-        });
-
-        setCustomUrlBtn.addEventListener('click', () => {
-            if (!activeChannel) {
-                alert('الرجاء اختيار قناة من القائمة أولاً لتخصيص رابطها.');
-                return;
-            }
-            modalChannelName.textContent = 'تخصيص رابط البث: ' + activeChannel.name;
-            customUrlInput.value = activeChannel.url || '';
-            urlModal.classList.add('active');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            urlModal.classList.remove('active');
-        });
-
-        urlModal.addEventListener('click', (e) => {
-            if (e.target === urlModal) urlModal.classList.remove('active');
-        });
-
-        saveCustomUrlBtn.addEventListener('click', () => {
-            if (!activeChannel) return;
-            const newUrl = customUrlInput.value.trim();
-            activeChannel.url = newUrl;
-            urlModal.classList.remove('active');
-            loadPlayerContent();
-            renderChannels();
-            alert('تم تحديث رابط القناة بنجاح!');
-        });
-
-        // تهيئة المشغل عند التحميل الأولي
-        loadPlayerContent();
-        renderChannels();
-    </script>
-</body>
-</html>
