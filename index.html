@@ -1,8 +1,1363 @@
-<div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHWh_-iybg/D6LWiYjtd-WKB80UNQZgvQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHWh_-iybg&#x2F;D6LWiYjtd-WKB80UNQZgvQ&#x2F;view?utm_content=DAHWh_-iybg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">نسخة من نسخة من نسخة من احمد المغني</a> بواسطة AHMED
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMOGHANI LIVE — نافذتك إلى البث المباشر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #131b2e;
+            --bg-card: #1a233d;
+            --bg-card-hover: #222d4f;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --danger: #ef4444;
+            --success: #10b981;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-purple);
+        }
+
+        .ticker-bar {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .ticker-item i {
+            color: var(--accent-purple);
+        }
+
+        .player-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .current-channel-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .live-badge {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .channel-title-display {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #000;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .video-container iframe, .video-container video, .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #111827, #1f2937);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .video-placeholder i {
+            font-size: 4rem;
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .video-placeholder h3 {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .player-footer {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .player-instruction {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .player-controls-btns {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .ctrl-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .ctrl-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-purple);
+        }
+
+        .filter-search-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.9rem 3rem 0.9rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.7rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            background: var(--bg-card-hover);
+            color: var(--text-main);
+            border-color: var(--accent-purple);
+        }
+
+        .category-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.8rem;
+        }
+
+        .category-title h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-title h2 i {
+            color: var(--accent-purple);
+        }
+
+        .category-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .channel-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .channel-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        .channel-card.active-channel {
+            border-color: var(--accent-purple);
+            background: var(--bg-card);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .channel-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .channel-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-purple);
+            transition: var(--transition);
+        }
+
+        .channel-card:hover .channel-icon {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: white;
+        }
+
+        .favorite-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 5px;
+        }
+
+        .favorite-btn:hover, .favorite-btn.favorited {
+            color: #f59e0b;
+        }
+
+        .channel-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .channel-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .channel-footer {
+            margin-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .channel-status {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .channel-status.offline {
+            color: var(--text-muted);
+        }
+
+        .watch-now-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+        }
+
+        .info-card h3 i {
+            color: var(--accent-purple);
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .feature-list li i {
+            color: var(--success);
+            margin-top: 4px;
+        }
+
+        .steps-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .steps-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .disclaimer-note {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px dashed rgba(239, 68, 68, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            color: #fca5a5;
+            font-size: 0.85rem;
+            text-align: center;
+            max-width: 1300px;
+            margin: 0 auto 2rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .modal-body input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            outline: none;
+        }
+
+        .modal-body input:focus {
+            border-color: var(--accent-purple);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                gap: 1.2rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 2rem 0.5rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .filter-search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .channels-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo-container">
+                <div class="logo-icon"><i class="fa-solid fa-play"></i></div>
+                <div class="logo-text">ALMOGHANI <span>LIVE</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">الرئيسية</a></li>
+                <li><a href="#saudi-channels">القنوات السعودية</a></li>
+                <li><a href="#sports-channels">القنوات الرياضية</a></li>
+                <li><a href="#news-channels">القنوات الإخبارية</a></li>
+                <li><a href="#islamic-channels">القنوات الإسلامية</a></li>
+                <li><a href="#player-section">البث المباشر</a></li>
+                <li><a href="#contact-us">تواصل معنا</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section class="hero">
+            <h1>شاهد قنواتك المفضلة <span>مباشرة</span></h1>
+            <p>كل ما تحب مشاهدته في مكان واحد. اختر القناة، استمتع بالمشاهدة، وابقَ قريبًا من الأخبار والبرامج والبثوث المباشرة على مدار الساعة.</p>
+            <div class="hero-btns">
+                <a href="#player-section" class="btn btn-primary">
+                    <i class="fa-solid fa-play"></i> شاهد البث الآن
+                </a>
+                <a href="#saudi-channels" class="btn btn-secondary">
+                    <i class="fa-solid fa-compass"></i> استكشف القنوات
+                </a>
+            </div>
+        </section>
+
+        <div class="ticker-bar">
+            <div class="ticker-item"><i class="fa-solid fa-circle-check"></i> مشاهدة سهلة</div>
+            <div class="ticker-item"><i class="fa-solid fa-bars-staggered"></i> أقسام مرتبة</div>
+            <div class="ticker-item"><i class="fa-solid fa-tower-broadcast"></i> بث مباشر في مكان واحد</div>
+        </div>
+
+        <section class="player-section" id="player-section">
+            <div class="player-header">
+                <div class="current-channel-info">
+                    <div class="live-badge"><div class="live-dot"></div> مباشر الآن</div>
+                    <div class="channel-title-display" id="currentChannelTitle">قناة القرآن الكريم</div>
+                </div>
+                <div class="player-controls-btns">
+                    <button class="ctrl-btn" id="reloadBtn" title="إعادة تحميل البث">
+                        <i class="fa-solid fa-rotate-right"></i> إعادة تحميل
+                    </button>
+                    <button class="ctrl-btn" id="fullscreenBtn" title="تكبير الشاشة">
+                        <i class="fa-solid fa-expand"></i> تكبير الشاشة
+                    </button>
+                    <button class="ctrl-btn" id="openOriginalBtn" title="فتح القناة في موقعها الأصلي" target="_blank">
+                        <i class="fa-solid fa-external-link-alt"></i> الموقع الأصلي
+                    </button>
+                    <button class="ctrl-btn" id="shareBtn" title="مشاركة القناة">
+                        <i class="fa-solid fa-share-nodes"></i> مشاركة
+                    </button>
+                </div>
+            </div>
+
+            <div class="video-container" id="videoContainer">
+                <!-- بث مباشر افتراضي جاهز للعمل فوراً (قناة القرآن الكريم - بث رسمي) -->
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=UC5ne9tG2vY3w_6z8VbV92pA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="player-footer">
+                <div class="player-instruction">اختر قناة من القائمة لبدء المشاهدة. قد يعتمد تشغيل بعض البثوث على إعدادات التضمين لدى مصدر البث.</div>
+                <button class="ctrl-btn" id="setCustomUrlBtn" style="background: rgba(139,92,246,0.15); border-color: var(--accent-purple);">
+                    <i class="fa-solid fa-link"></i> تخصيص رابط البث للقناة الحالية
+                </button>
+            </div>
+        </section>
+
+        <div class="filter-search-container">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن قناة أو قسم…">
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">كل القنوات</button>
+                <button class="filter-tab" data-filter="favorites">المفضلة (<span id="favCount">0</span>)</button>
+                <button class="filter-tab" data-filter="recent">المضافة حديثًا</button>
+            </div>
+        </div>
+
+        <div id="categoriesContainer">
+            
+            <section class="category-section" id="saudi-channels" data-category="saudi">
+                <div class="category-header">
+                    <div class="category-title">
+                        <h2><i class="fa-solid fa-landmark"></i> القنوات السعودية</h2>
+                        <p>تابع القنوات السعودية وبرامجها وأخبارها من خلال واجهة سهلة وسريعة.</p>
+                    </div>
+                </div>
+                <div class="channels-grid" data-group="saudi"></div>
+            </section>
+
+            <section class="category-section" id="sports-channels" data-category="sports">
+                <div class="category-header">
+                    <div class="category-title">
+                        <h2><i class="fa-solid fa-futbol"></i> القنوات الرياضية</h2>
+                        <p>تابع البرامج الرياضية والتحليلات والتغطيات الرياضية المباشرة.</p>
+                    </div>
+                </div>
+                <div class="channels-grid" data-group="sports"></div>
+            </section>
+
+            <section class="category-section" id="news-channels" data-category="news">
+                <div class="category-header">
+                    <div class="category-title">
+                        <h2><i class="fa-solid fa-newspaper"></i> القنوات الإخبارية</h2>
+                        <p>ابقَ على اطلاع على آخر الأخبار والتقارير والتغطيات المباشرة.</p>
+                    </div>
+                </div>
+                <div class="channels-grid" data-group="news"></div>
+            </section>
+
+            <section class="category-section" id="islamic-channels" data-category="islamic">
+                <div class="category-header">
+                    <div class="category-title">
+                        <h2><i class="fa-solid fa-mosque"></i> القنوات الإسلامية</h2>
+                        <p>قنوات وبرامج إيمانية ومحتوى نافع طوال اليوم.</p>
+                    </div>
+                </div>
+                <div class="channels-grid" data-group="islamic"></div>
+            </section>
+
+            <section class="category-section" id="misc-channels" data-category="misc">
+                <div class="category-header">
+                    <div class="category-title">
+                        <h2><i class="fa-solid fa-tv"></i> قنوات متنوعة</h2>
+                        <p>مساحة لقنوات وبرامج أخرى تختارها وتضيف روابطها بنفسك.</p>
+                    </div>
+                </div>
+                <div class="channels-grid" data-group="misc"></div>
+            </section>
+
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fa-solid fa-star"></i> لماذا ALMOGHANI LIVE؟</h3>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check"></i> <span><strong>واجهة سهلة:</strong> تصل إلى القناة التي تريدها بخطوات بسيطة.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><strong>أقسام واضحة:</strong> القنوات مرتبة حسب نوع المحتوى.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><strong>مشاهدة من مكان واحد:</strong> اختر القناة وشاهدها من المشغّل الموجود في الصفحة.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><strong>تصميم يناسبك:</strong> تجربة مريحة على الجوال والكمبيوتر.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><strong>قنواتك المفضلة:</strong> احفظ القنوات التي تتابعها للوصول إليها بسرعة.</span></li>
+                </ul>
+            </div>
+            
+            <div class="info-card" id="how-to-watch">
+                <h3><i class="fa-solid fa-list-ol"></i> طريقة المشاهدة</h3>
+                <ul class="steps-list">
+                    <li>
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>اختر القسم المناسب</h4>
+                            <p>اختر القسم الذي تريد استكشافه من القائمة أو بالتمرير.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>اضغط على القناة</h4>
+                            <p>اضغط على بطاقة القناة المطلوبة لتشغيلها فورا.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>استمتع بالمشاهدة</h4>
+                            <p>شاهد البث في المشغّل الموجود أعلى الصفحة بكل راحة.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="disclaimer-note">
+        <i class="fa-solid fa-triangle-exclamation"></i> تختلف إمكانية تشغيل البث بحسب توفر الرابط والسماح بعرضه داخل المواقع الأخرى. لا توجد روابط وهمية، ويمكنك إضافة روابط البث المتاح في أي وقت.
+    </div>
+
+    <footer id="contact-us">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo-container" style="margin-bottom: 1rem;">
+                    <div class="logo-icon"><i class="fa-solid fa-play"></i></div>
+                    <div class="logo-text">ALMOGHANI <span>LIVE</span></div>
+                </div>
+                <p>ALMOGHANI LIVE — نافذتك إلى البث المباشر. نرتب لك القنوات في مكان واحد لتصل إلى ما تريد بسهولة ويسر.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="تويتر / إكس"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" title="يوتيوب"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="social-icon" title="تليجرام"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" class="social-icon" title="البريد الإلكتروني"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>روابط سريعة</h3>
+                <ul class="feature-list" style="gap: 0.8rem;">
+                    <li><a href="#" style="color: var(--text-muted); text-decoration: none;">الرئيسية</a></li>
+                    <li><a href="#saudi-channels" style="color: var(--text-muted); text-decoration: none;">القنوات السعودية</a></li>
+                    <li><a href="#sports-channels" style="color: var(--text-muted); text-decoration: none;">القنوات الرياضية</a></li>
+                    <li><a href="#news-channels" style="color: var(--text-muted); text-decoration: none;">القنوات الإخبارية</a></li>
+                    <li><a href="#player-section" style="color: var(--text-muted); text-decoration: none;">البث المباشر</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>تواصل معنا</h3>
+                <p>تابعنا لمعرفة جديد القنوات والتحديثات والإعلانات البرمجية الجديدة.</p>
+                <p style="color: var(--text-main); font-weight: 600;"><i class="fa-solid fa-envelope" style="color: var(--accent-purple); margin-left: 8px;"></i> support@almoghani.net</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>جميع الحقوق محفوظة © 2026 ALMOGHANI LIVE</div>
+            <div>تطوير وإدارة شبكة المغني الرقمية</div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="urlModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalChannelName">تخصيص رابط البث</h3>
+                <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">أدخل رابط التضمين (Embed URL) أو رابط البث المباشر الخاص بهذه القناة:</p>
+                <input type="url" id="customUrlInput" placeholder="https://www.youtube.com/embed/... أو رابط البث المباشر">
+                <button class="btn btn-primary" id="saveCustomUrlBtn" style="width: 100%; justify-content: center;">حفظ وتطبيق البث</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const channelsData = [
+            { id: 'saudi-1', name: 'قناة السعودية', group: 'saudi', icon: 'fa-tv', desc: 'القناة السعودية الرسمية وبرامج متنوعة.', url: 'https://www.youtube.com/embed/live_stream?channel=UCXwU0Lq1Y0L85d8R4Q7V44A', recent: true },
+            { id: 'saudi-2', name: 'الإخبارية السعودية', group: 'saudi', icon: 'fa-bullhorn', desc: 'تغطيات إخبارية ومحلية على مدار الساعة.', url: '', recent: false },
+            { id: 'saudi-3', name: 'قناة القرآن الكريم', group: 'saudi', icon: 'fa-kaaba', desc: 'بث مباشر من الحرم المكي الشريف.', url: 'https://www.youtube.com/embed/live_stream?channel=UC5ne9tG2vY3w_6z8VbV92pA', recent: true },
+            { id: 'saudi-4', name: 'قناة السنة النبوية', group: 'saudi', icon: 'fa-mosque', desc: 'بث مباشر من المسجد النبوي الشريف.', url: '', recent: false },
+            { id: 'saudi-5', name: 'قناة الثقافية', group: 'saudi', icon: 'fa-book-open', desc: 'برامج ثقافية وأدبية وتراثية سعودية.', url: '', recent: false },
+            { id: 'saudi-6', name: 'قناة الإخبارية الرياضية', group: 'saudi', icon: 'fa-medal', desc: 'منافسات وبرامج رياضية محلية وعالمية.', url: '', recent: false },
+
+            { id: 'sports-1', name: 'SSC الرياضية 1', group: 'sports', icon: 'fa-futbol', desc: 'الدوري السعودي للمحترفين وبطولات كبرى.', url: '', recent: true },
+            { id: 'sports-2', name: 'SSC الرياضية 2', group: 'sports', icon: 'fa-basketball', desc: 'تغطيات حصرية ومباريات مباشرة متنوعة.', url: '', recent: false },
+            { id: 'sports-3', name: 'بي إن سبورت الإخبارية', group: 'sports', icon: 'fa-trophy', desc: 'أخبار الرياضة العالمية وتحليلات المباريات.', url: '', recent: false },
+            { id: 'sports-4', name: 'قناة دبي الرياضية', group: 'sports', icon: 'fa-volleyball', desc: 'برامج وفعاليات رياضية عربية وعالمية.', url: '', recent: false },
+
+            { id: 'news-1', name: 'العربية مباشر', group: 'news', icon: 'fa-globe', desc: 'نوافذ إخبارية ومتابعة دقيقة للأحداث العالمية.', url: '', recent: true },
+            { id: 'news-2', name: 'الحدث الإخبارية', group: 'news', icon: 'fa-satellite-dish', desc: 'تغطيات عاجلة وتحليلات سياسية وميدانية.', url: '', recent: false },
+            { id: 'news-3', name: 'سكاي نيوز عربية', group: 'news', icon: 'fa-tower-broadcast', desc: 'أخبار اللحظة برؤية تحليلية شاملة.', url: '', recent: false },
+            { id: 'news-4', name: 'قناة الجزيرة', group: 'news', icon: 'fa-video', desc: 'تغطية إخبارية واسعة ومستمرة لأحداث العالم.', url: '', recent: false },
+
+            { id: 'islamic-1', name: 'قناة المجد للقرآن', group: 'islamic', icon: 'fa-quran', desc: 'تلاوات خاشعة وآيات بينات طوال اليوم.', url: '', recent: true },
+            { id: 'islamic-2', name: 'قناة اقرأ الفضائية', group: 'islamic', icon: 'fa-hands-praying', desc: 'برامج دعية هادفة وإيمانية نافعة.', url: '', recent: false },
+            { id: 'islamic-3', name: 'قناة الرسالة', group: 'islamic', icon: 'fa-book', desc: 'قيم إسلامية وأخلاق نبيلة وبرامج أسرية.', url: '', recent: false },
+
+            { id: 'misc-1', name: 'قناة الوثائقية', group: 'misc', icon: 'fa-film', desc: 'أفلام وثائقية وتاريخية وعلمية مشوقة.', url: '', recent: true },
+            { id: 'misc-2', name: 'قناة الأطفال (سبيستون)', group: 'misc', icon: 'fa-child', desc: 'برامج وترفيه ورسوم متحركة للأجيال.', url: '', recent: false },
+            { id: 'misc-3', name: 'قناة الطبخ والشيف', group: 'misc', icon: 'fa-utensils', desc: 'أشهى الأطباق والوصفات العالمية والمحلية.', url: '', recent: false }
+        ];
+
+        let favorites = JSON.parse(localStorage.getItem('almoghani_favs')) || [];
+        // تعيين قناة القرآن الكريم كقناة افتراضية نشطة للتأكد من عمل البث فوراً
+        let activeChannel = channelsData.find(c => c.id === 'saudi-3') || channelsData[0];
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const searchInput = document.getElementById('searchInput');
+        const favCountSpan = document.getElementById('favCount');
+        const videoContainer = document.getElementById('videoContainer');
+        const currentChannelTitle = document.getElementById('currentChannelTitle');
+        const reloadBtn = document.getElementById('reloadBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const openOriginalBtn = document.getElementById('openOriginalBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const setCustomUrlBtn = document.getElementById('setCustomUrlBtn');
+        const urlModal = document.getElementById('urlModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const customUrlInput = document.getElementById('customUrlInput');
+        const saveCustomUrlBtn = document.getElementById('saveCustomUrlBtn');
+        const modalChannelName = document.getElementById('modalChannelName');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+
+        function renderChannels() {
+            ['saudi', 'sports', 'news', 'islamic', 'misc'].forEach(group => {
+                const grid = document.querySelector(`.channels-grid[data-group="${group}"]`);
+                if (!grid) return;
+
+                const filteredChannels = channelsData.filter(ch => {
+                    if (ch.group !== group) return false;
+                    if (searchQuery && !ch.name.includes(searchQuery) && !ch.desc.includes(searchQuery)) {
+                        return false;
+                    }
+                    if (currentFilter === 'favorites' && !favorites.includes(ch.id)) return false;
+                    if (currentFilter === 'recent' && !ch.recent) return false;
+                    return true;
+                });
+
+                if (filteredChannels.length === 0) {
+                    grid.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 1.5rem;">لا توجد قنوات مطابقة للبحث أو الفلتر الحالي.</p>`;
+                    return;
+                }
+
+                grid.innerHTML = filteredChannels.map(ch => {
+                    const isFav = favorites.includes(ch.id);
+                    const isActive = activeChannel && activeChannel.id === ch.id;
+                    const hasUrl = ch.url && ch.url.trim() !== '';
+
+                    return `
+                        <div class="channel-card ${isActive ? 'active-channel' : ''}" onclick="selectChannel('${ch.id}')">
+                            <div>
+                                <div class="channel-card-top">
+                                    <div class="channel-icon"><i class="fa-solid ${ch.icon}"></i></div>
+                                    <button class="favorite-btn ${isFav ? 'favorited' : ''}" onclick="event.stopPropagation(); toggleFavorite('${ch.id}')" title="إضافة للمفضلة">
+                                        <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
+                                    </button>
+                                </div>
+                                <div class="channel-info">
+                                    <h3>${ch.name}</h3>
+                                    <p>${ch.desc}</p>
+                                </div>
+                            </div>
+                            <div class="channel-footer">
+                                <span class="channel-status ${hasUrl ? '' : 'offline'}">
+                                    <i class="fa-solid fa-circle" style="font-size: 8px;"></i> ${hasUrl ? 'متوفر' : 'بانتظار الرابط'}
+                                </span>
+                                <span class="watch-now-tag">مشاهدة <i class="fa-solid fa-play" style="font-size: 10px;"></i></span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            });
+
+            favCountSpan.textContent = favorites.length;
+        }
+
+        window.selectChannel = function(id) {
+            activeChannel = channelsData.find(c => c.id === id);
+            if (!activeChannel) return;
+
+            currentChannelTitle.textContent = activeChannel.name;
+            renderChannels();
+            loadPlayerContent();
+        }
+
+        function loadPlayerContent() {
+            if (!activeChannel) return;
+
+            if (activeChannel.url && activeChannel.url.trim() !== '') {
+                openOriginalBtn.style.display = 'inline-flex';
+                openOriginalBtn.href = activeChannel.url;
+
+                if (activeChannel.url.includes('youtube.com/embed') || activeChannel.url.includes('iframe') || activeChannel.url.includes('http')) {
+                    videoContainer.innerHTML = `<iframe src="${activeChannel.url}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                } else {
+                    videoContainer.innerHTML = `<div class="video-placeholder"><i class="fa-solid fa-circle-exclamation"></i><h3>رابط غير متوافق مع التضمين المباشر</h3><p>انقر على زر "الموقع الأصلي" أدناه لمشاهدة البث مباشرة في مصدره.</p></div>`;
+                }
+            } else {
+                openOriginalBtn.style.display = 'none';
+                videoContainer.innerHTML = `
+                    <div class="video-placeholder">
+                        <i class="fa-solid fa-circle-exclamation" style="color: #f59e0b;"></i>
+                        <h3>تعذر تشغيل هذا البث حاليًا</h3>
+                        <p>لا يتوفر رابط بث مباشر لهذه القناة حاليًا. جرّب قناة أخرى أو أضف رابط البث الخاص بك عبر زر التخصيص أدناه.</p>
+                    </div>
+                `;
+            }
+        }
+
+        window.toggleFavorite = function(id) {
+            const index = favorites.indexOf(id);
+            if (index > -1) {
+                favorites.splice(index, 1);
+            } else {
+                favorites.push(id);
+            }
+            localStorage.setItem('almoghani_favs', JSON.stringify(favorites));
+            renderChannels();
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            renderChannels();
+        });
+
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.getAttribute('data-filter');
+                renderChannels();
+            });
+        });
+
+        reloadBtn.addEventListener('click', () => {
+            if (!activeChannel) {
+                alert('الرجاء اختيار قناة أولاً.');
+                return;
+            }
+            loadPlayerContent();
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!activeChannel) {
+                alert('الرجاء اختيار قناة أولاً.');
+                return;
+            }
+            if (videoContainer.requestFullscreen) {
+                videoContainer.requestFullscreen();
+            } else if (videoContainer.webkitRequestFullscreen) {
+                videoContainer.webkitRequestFullscreen();
+            }
+        });
+
+        shareBtn.addEventListener('click', () => {
+            if (!activeChannel) {
+                alert('الرجاء اختيار قناة أولاً للمشاركة.');
+                return;
+            }
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ALMOGHANI LIVE — ' + activeChannel.name,
+                    text: 'شاهد بث ' + activeChannel.name + ' مباشرة عبر بوابة المغني للبث المباشر',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('تم نسخ رابط الموقع إلى الحافظة!');
+            }
+        });
+
+        setCustomUrlBtn.addEventListener('click', () => {
+            if (!activeChannel) {
+                alert('الرجاء اختيار قناة من القائمة أولاً لتخصيص رابطها.');
+                return;
+            }
+            modalChannelName.textContent = 'تخصيص رابط البث: ' + activeChannel.name;
+            customUrlInput.value = activeChannel.url || '';
+            urlModal.classList.add('active');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            urlModal.classList.remove('active');
+        });
+
+        urlModal.addEventListener('click', (e) => {
+            if (e.target === urlModal) urlModal.classList.remove('active');
+        });
+
+        saveCustomUrlBtn.addEventListener('click', () => {
+            if (!activeChannel) return;
+            const newUrl = customUrlInput.value.trim();
+            activeChannel.url = newUrl;
+            urlModal.classList.remove('active');
+            loadPlayerContent();
+            renderChannels();
+            alert('تم تحديث رابط القناة بنجاح!');
+        });
+
+        // تهيئة المشغل عند التحميل الأولي
+        loadPlayerContent();
+        renderChannels();
+    </script>
+</body>
+</html>
