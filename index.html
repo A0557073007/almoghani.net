@@ -234,7 +234,7 @@
         <div class="player-details">
           <p class="kicker">معلومات البث</p>
           <h3 id="playerTitle">المصدر الرياضي الرسمي</h3>
-          <p id="playerDescription">اختر جهة من البطاقات للوصول إلى موقعها الرسمي. إذا وفّر المصدر بثًا قابلًا للتضمين، سيظهر هنا بعد التحقق منه.</p>
+          <p id="playerDescription">لا يوجد بث مؤكد للتضمين داخل الصفحة الآن. استخدم الزر لفتح الموقع الرسمي والتحقق من البث المتاح.</p>
           <a class="button secondary" id="officialLink" href="https://www.fifa.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> زيارة المصدر الرسمي</a>
           <div class="source-note" style="margin-top:14px">حالة التضمين: غير متاح حاليًا — لم يتم العثور على بث رسمي مؤكد.</div>
         </div>
@@ -263,7 +263,7 @@
         <a class="source-card" href="https://www.fivb.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> الاتحاد الدولي للكرة الطائرة ↗</a>
         <a class="source-card" href="https://www.itftennis.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> الاتحاد الدولي للتنس ↗</a>
       </div>
-      <p class="footnote" style="margin-top:13px">تاريخ تحديث العرض: <span id="dateUpdated"></span> — الوقت المعروض بتوقيت المملكة العربية السعودية (UTC+3). عند غياب البيانات المعتمدة نظهر «لا توجد معلومات مؤكدة حاليًا».</p>
+      <p class="footnote" style="margin-top:13px">تاريخ اليوم: <span id="dateUpdated"></span> — الوقت المعروض بتوقيت المملكة العربية السعودية (UTC+3). عند غياب البيانات المعتمدة نظهر «لا توجد معلومات مؤكدة حاليًا».</p>
     </section>
   </main>
   <footer><div class="footer-inner wrap"><strong>ALMOGHANI <span style="color:var(--green)">SPORT</span></strong><span>دليل رياضي عربي — معلومات من مصادرها الرسمية فقط.</span></div></footer>
@@ -280,11 +280,11 @@
     ];
     const sportsInfo = {
       football: { title: "كرة القدم", icon: "⚽", urls: ["https://www.saff.com.sa/","https://www.the-afc.com/","https://www.fifa.com/"] },
-      handball: { title: "كرة اليد", icon: "🤾", urls: ["https://www.mos.gov.sa/","https://asianhandball.org/","https://www.ihf.info/"] },
+      handball: { title: "كرة اليد", icon: "🤾", urls: ["https://www.mos.gov.sa/","https://www.asianhandball.org/","https://www.ihf.info/"] },
       basketball: { title: "كرة السلة", icon: "🏀", urls: ["https://www.mos.gov.sa/","https://www.fiba.basketball/asia","https://www.fiba.basketball/"] },
       volleyball: { title: "الكرة الطائرة", icon: "🏐", urls: ["https://www.mos.gov.sa/","https://asianvolleyball.net/","https://www.fivb.com/"] },
       tennis: { title: "التنس", icon: "🎾", urls: ["https://www.mos.gov.sa/","https://www.itftennis.com/","https://www.itftennis.com/"] },
-      other: { title: "تنس ورياضات أخرى", icon: "🏅", urls: ["https://www.mos.gov.sa/","https://www.gulfolympic.org/","https://olympics.com/"] }
+      other: { title: "رياضات أخرى", icon: "🏅", urls: ["https://www.mos.gov.sa/","https://www.agoc.ga/","https://olympics.com/ioc"] }
     };
     const regions = [
       { id: "saudi", title: "الرياضة السعودية" },
