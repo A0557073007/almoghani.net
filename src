@@ -1,0 +1,114 @@
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get('/api/v1/streams/:id', async (req, res, next) => {
+  try {
+    requireUuid(req.params.id);
+    const result = await pool.query(`${streamSelect} WHERE s.id = $1`, [req.params.id]);
+    if (!result.rowCount) throw httpError(404, 'Stream not found');
+    res.json({ data: serializeStream(result.rows[0]) });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post('/api/v1/streams', async (req, res, next) => {
+  try {
+    const channelId = req.body.channelId;
+    requireUuid(channelId, 'channelId');
+    const titleAr = requireText(req.body.titleAr, 'titleAr');
+    const descriptionAr = optionalText(req.body.descriptionAr, 'descriptionAr', 5000);
+    const status = req.body.status ?? 'scheduled';
+    const playbackUrl = optionalText(req.body.playbackUrl, 'playbackUrl', 2000);
+    const scheduledStartAt = parseDate(req.body.scheduledStartAt, 'scheduledStartAt');
+    if (!STREAM_STATUSES.has(status)) throw httpError(400, 'status is invalid');
+
+    const result = await pool.query(`
+      INSERT INTO almoghani.live_streams (channel_id, title_ar, description_ar, status, playback_url, scheduled_start_at)
+      VALUES ($1,$2,$3,$4,$5,$6)
+      RETURNING id
+    `, [channelId, titleAr, descriptionAr, status, playbackUrl, scheduledStartAt]);
+    const created = await pool.query(`${streamSelect} WHERE s.id = $1`, [result.rows[0].id]);
+    res.status(201).json({ data: serializeStream(created.rows[0]) });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.patch('/api/v1/streams/:id/status', async (req, res, next) => {
+  try {
+    requireUuid(req.params.id);
+    const status = req.body.status;
+    if (!STREAM_STATUSES.has(status)) throw httpError(400, 'status is invalid');
+    const values = [status, req.params.id];
+    const result = await pool.query(`
+      UPDATE almoghani.live_streams
+      SET status = $1,
+          actual_start_at = CASE WHEN $1 = 'live' AND actual_start_at IS NULL THEN NOW() ELSE actual_start_at END,
+          ended_at = CASE WHEN $1 = 'ended' THEN NOW() ELSE ended_at END
+      WHERE id = $2
+      RETURNING id
+    `, values);
+    if (!result.rowCount) throw httpError(404, 'Stream not found');
+    const updated = await pool.query(`${streamSelect} WHERE s.id = $1`, [req.params.id]);
+    io.to(streamRooms(req.params.id)).emit('stream:status_updated', serializeStream(updated.rows[0]));
+    res.json({ data: serializeStream(updated.rows[0]) });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.patch('/api/v1/streams/:id/viewers', async (req, res, next) => {
+  try {
+    requireUuid(req.params.id);
+    const currentViewers = Number(req.body.currentViewers);
+    if (!Number.isInteger(currentViewers) || currentViewers < 0) throw httpError(400, 'currentViewers must be a non-negative integer');
+    const result = await pool.query(`
+      UPDATE almoghani.live_streams
+      SET current_viewers = $1,
+          peak_viewers = GREATEST(peak_viewers, $1)
+      WHERE id = $2
+      RETURNING id
+    `, [currentViewers, req.params.id]);
+    if (!result.rowCount) throw httpError(404, 'Stream not found');
+    await pool.query('INSERT INTO almoghani.stream_viewer_snapshots (stream_id, viewers) VALUES ($1, $2)', [req.params.id, currentViewers]);
+    const updated = await pool.query(`${streamSelect} WHERE s.id = $1`, [req.params.id]);
+    io.to(streamRooms(req.params.id)).emit('stream:viewers_updated', {
+      streamId: req.params.id,
+      currentViewers: updated.rows[0].current_viewers,
+      peakViewers: updated.rows[0].peak_viewers,
+      updatedAt: new Date().toISOString(),
+    });
+    res.json({ data: serializeStream(updated.rows[0]) });
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.use((_req, _res, next) => next(httpError(404, 'Route not found')));
+
+app.use((error, _req, res, _next) => {
+  console.error(error);
+  if (error.code === '23505') return res.status(409).json({ error: { message: 'A record with the same unique value already exists' } });
+  if (error.code === '23503') return res.status(400).json({ error: { message: 'A referenced record does not exist' } });
+  if (error.type === 'entity.parse.failed') return res.status(400).json({ error: { message: 'Invalid JSON body' } });
+  const status = error.status || 500;
+  return res.status(status).json({ error: { message: status === 500 ? 'Internal server error' : error.message, ...(error.details ? { details: error.details } : {}) } });
+});
+
+const server = httpServer.listen(port, '0.0.0.0', () => {
+  console.log(`ALMOGHANI API listening on http://0.0.0.0:${port}`);
+});
+
+async function shutdown(signal) {
+  console.log(`${signal} received; shutting down`);
+  server.close(async () => {
+    await pool.end();
+    process.exit(0);
+  });
+}
+
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGINT', () => shutdown('SIGINT'));
